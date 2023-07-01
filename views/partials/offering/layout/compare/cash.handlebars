@@ -1,0 +1,84 @@
+{{! Cash Info   }}
+<div class="cashInfo">
+  <tr>
+    <th colspan="{{pricingLength}}" class="text-2xl text-center pt-5 print:pt-2 print:text-xl">
+      Cash System Details
+    </th>
+  </tr>
+  <tr>
+    <th class="text-right font-normal pr-4 text-xs">
+      Cash Discounts
+    </th>
+    {{#each pricing}}
+      <td class="text-center text-xs bg-gray-300">
+        {{{toMoneyDec _fid_816}}}
+      </td>
+    {{/each}}
+  </tr>
+  <tr>
+    <th class="text-right font-normal pr-4 text-xs">
+      AES Discounts
+    </th>
+    {{#each pricing}}
+      <td class="text-center text-xs">
+        {{{toMoneyDec _fid_819}}}
+      </td>
+    {{/each}}
+  </tr>
+  <tr>
+    <th class="text-right font-bold pr-4 text-xs">
+      CASH System Cost
+    </th>
+    {{#each pricing}}
+      <td class="text-center text-xs bg-gray-300 font-bold">
+        {{{toMoneyDec _fid_235}}}
+      </td>
+    {{/each}}
+  </tr>
+  <tr>
+    <th class="text-right font-normal pr-4 text-xs">
+      Tax Credit Value
+      <sup>
+        4
+      </sup>
+    </th>
+    {{#each pricing}}
+      <td class="text-center text-xs">
+        {{{toMoneyDec _fid_355}}}
+      </td>
+    {{/each}}
+  </tr>
+  <tr>
+    <th class="text-right font-normal pr-4 text-xs">
+      AES Rebates
+    </th>
+    {{#each pricing}}
+      <td class="text-center text-xs bg-gray-300">
+        {{{toMoneyDec _fid_866}}}
+      </td>
+    {{/each}}
+  </tr>
+  {{!-- <tr>
+    <th class="text-right font-normal pr-4 text-xs">
+      SGIP Rebate
+      <sup>
+        5
+      </sup>
+    </th>
+    {{#each pricing}}
+      <td class="text-center text-xs">
+        {{{_fid_818}}}
+      </td>
+    {{/each}}
+  </tr> --}}
+  <tr>
+    <th class="text-right font-bold pr-4 text-xs">
+      Net Cash Amount
+    </th>
+    {{#each pricing}}
+      <td class="text-center text-xs font-bold">
+        {{{toMoneyDec _fid_826}}}
+      </td>
+    {{/each}}
+  </tr>
+</div>

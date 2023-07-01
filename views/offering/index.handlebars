@@ -1,0 +1,66 @@
+{{#with presentation}}
+    <div class="relative min-h-screen" id="offering">
+        <div class="flex">
+          {{> offering/layout/nav}}
+          <div class="h-screen overflow-y-scroll print:w-full flex-1 md:px-4 print:h-full print:px-0">
+            {{> offering/pages/know}}
+            <div class="border-b border-gray-600 mt-10 print:hidden"></div>
+            {{#each pricing}}
+                {{#ifCon type "==" 'solar+'}}
+                {{> offering/pages/solar}}
+                {{/ifCon}}
+                {{#ifCon type "==" 'solar+storage+'}}
+                {{> offering/pages/solar_storage}}
+                {{/ifCon}}
+                {{#ifCon type "==" 'solar+generator+'}}
+                {{> offering/pages/solar_generator}}
+                {{/ifCon}}
+                {{#ifCon type "==" 'solar+storage+generator+'}}
+                {{> offering/pages/solar_storage_generator}}
+                {{/ifCon}}
+                {{#ifCon type "==" 'storage+'}}
+                {{> offering/pages/storage}}
+                {{/ifCon}}
+                {{#ifCon type "==" 'generator+'}}
+                {{> offering/pages/generator}}
+                {{/ifCon}}
+                <div class="border-b border-gray-600 print:hidden"></div>
+            {{/each}}
+
+            {{> offering/pages/compare}}
+            {{#if hasFinancing}}
+              {{> offering/pages/finance}}
+            {{/if}}
+            {{#if hideCash}}
+              {{> offering/pages/cash}}
+            {{/if}}
+            {{> offering/pages/warranty}}
+            {{> offering/layout/footer}}
+          </div>
+        </div>
+    </div>
+{{/with}}
+
+<script>
+  const navClasses = ['text-blue-700', 'font-semibold']
+  const anchor = document.querySelectorAll('nav ul li a');
+  const pages = document.querySelectorAll('.page');
+
+  anchor.forEach(a => a.addEventListener('click', triggerActive))
+
+  function triggerActive(e) {
+    resetAnchor(e)
+    displayPage(e)
+  }
+
+  function resetAnchor(e) {
+    anchor.forEach(a => a.classList.remove(...navClasses))
+    e.target.classList.add(...navClasses)
+  }
+
+  function displayPage(e)  {
+    pages.forEach(page => page.classList.remove('active'))
+    const show = document.getElementById(e.target.dataset.target);
+    show.classList.add('active')
+  }
+</script>

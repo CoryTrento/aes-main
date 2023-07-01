@@ -1,0 +1,95 @@
+  {{!-- OLD WAY ******************************************************** --}}
+  {{!-- Promotion Info --}}
+      {{#if proposal.promotions}}
+        {{#if proposal.discountOrRebate}}
+          <div class="col-12">
+            <h6><b>Promotions:</b></h6>
+              <div class="row">
+              {{#each proposal.promotions}}
+                {{#ifCon payout_type__f_ '!=' 'Referral'}}
+                  <div class="col-4 ml-0 mr-0 pl-0 pr-0">
+                    <ul>
+                      <li>
+                        <a href="https://aes.quickbase.com/db/bkr6akjie?a=dr&rid={{record_id_}}&rl=qcc" target="_blank">{{variable_name}}</a>
+                      </li>
+                      <h6><i>Value: {{toMoneyDec promotion_amount__f_}}</i></h6>
+                      <h6><i>Type: {{variable___promotion_payout_type}}</i></h6>
+                    </ul>
+                  </div>
+                {{/ifCon}}
+              {{/each}}
+            </div>
+          </div>
+        {{/if}}
+      {{/if}}
+
+      {{!-- Referral Info --}}
+      {{#if proposal.referral}}
+        <div class="col-12">
+          <h6><b>Referrals:</b></h6>
+          <div class="row">
+            <ul>
+              {{#each proposal.promotions}}
+                {{#ifCon payout_type__f_ '==' 'Referral'}}
+                  <li>
+                    <a href="https://aes.quickbase.com/db/bkr6akjie?a=dr&rid={{record_id_}}&rl=qcc" target="_blank">{{variable_name}}</a>
+                  </li>
+                  <h6><i>Check payee: {{{name_for_check__first_}}}</i></h6>
+                  {{#if split_referral}}
+                    <h6><i>Check payee: {{{name_for_check__second_}}}</i></h6>
+                  {{/if}}
+                {{/ifCon}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      {{/if}}
+
+    {{!-- NEW WAY ******************************************************** --}}
+    {{!-- Promotions --}}
+
+    {{#if proposal.newPromotions}}
+          <div class="col-12">
+            <h6><b>Promotions:</b></h6>
+              <div class="row">
+              {{#each proposal.newPromotions}}
+                {{#ifCon promotion_payout_type__f_ '!=' 'Referral'}}
+                  <div class="col-4 ml-0 mr-0 pl-0 pr-0">
+                    <ul>
+                      <li>
+                        <a href="https://aes.quickbase.com/db/bnhrg3tks?a=dr&rid={{record_id_}}&rl=qcc" target="_blank">{{variable_name}}</a>
+                      </li>
+                      <h6><i>Value: {{toMoneyDec promo_amount__f_}}</i></h6>
+                      <h6><i>Type: {{promotion_payout_type__f_}}</i></h6>
+                    </ul>
+                  </div>
+                {{/ifCon}}
+              {{/each}}
+            </div>
+          </div>
+      {{/if}}
+
+      {{!-- Referral Info --}}
+      {{#if proposal.newReferral}}
+        <div class="col-12 ">
+          <h6><b>Referrals:</b></h6>
+         
+            <div class="row">
+              {{#each proposal.newPromotions}}
+               {{#ifCon promotion_payout_type__f_  '==' 'Referral'}}
+                  <div class="col-4 ml-0 mr-0 pl-0 pr-0">
+                    <ul>
+                      <li>
+                        <a href="https://aes.quickbase.com/db/bnhrg3tks?a=dr&rid={{record_id_}}&rl=qcc" target="_blank">{{variable_name}}</a>
+                      </li>
+                      <h6><i>Value: {{toMoneyDec promo_amount__f_}}</i></h6>
+                      <h6><i>Check payee: {{{name_for_check}}}</i></h6>         
+                    </ul>
+                  </div> 
+                 {{/ifCon}}
+              {{/each}}
+            </div>
+
+          </div>
+        </div>
+      {{/if}}

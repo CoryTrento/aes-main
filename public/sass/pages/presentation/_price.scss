@@ -1,0 +1,113 @@
+.price {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 100px;
+
+  @include print() {
+    margin-top: 0px;
+  }
+
+  @media only screen and (max-width: 840px) {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  &__title {
+    border-bottom: 1px solid rgba($color-pres-dark, 0.6);
+    & h1 {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 2.8rem;
+      font-weight: 300;
+    }
+  }
+
+  &__header {
+    margin-top: 2rem;
+    @include print() {
+      margin-top: 1rem;
+    }
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 840px) {
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 1rem;
+    }
+
+    & p {
+      font-size: 1.2rem;
+    }
+    & b {
+      font-size: 1.2rem;
+    }
+
+    & a {
+      position: relative;
+    }
+
+    & i {
+      position: absolute;
+      bottom: 0px;
+      left: 10px;
+      font-size: 2rem;
+    }
+
+    &-offset {
+      margin-top: -1rem;
+      display: flex;
+      flex-direction: column;
+
+      &-graph {
+        display: flex;
+        align-items: center;
+      }
+
+      & p {
+        text-align: center;
+      }
+    }
+  }
+
+  &__options {
+    &-title {
+      margin-top: 2rem;
+      @include print() {
+        margin-top: 1rem;
+      }
+      background-color: $color-pres-light;
+      border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+      & h1 {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 2.2rem;
+        font-weight: 300;
+        padding: 0.8rem 0;
+      }
+    }
+
+    &-graph {
+      & th {
+        font-size: 1.2rem;
+      }
+
+      & td {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

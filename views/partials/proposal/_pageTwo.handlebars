@@ -1,0 +1,60 @@
+<div class="mb-5 pb-always">
+  <div class="row">
+
+    {{!-- Your Home - Your Energy --}}
+    <div class="col-12">
+      <img class="img-fluid rounded" src="https://lh3.googleusercontent.com/-85tyAFfBgoU/W1YowKj07WI/AAAAAAAADlA/miZqMGfjJeEknKlmXTK55NaSg3pwQQ4XgCL0BGAYYCw/h1491/2018-07-23.jpg" alt="">
+    </div>
+    <div class="col-12 mt-3">
+    <h1>Your Home - Your Energy</h1> 
+      <p class="font-20">{{{pageTwoContent.paragraphOne}}}</p>
+      <p class="font-20">{{{pageTwoContent.paragraphTwo}}}</p>
+      {{#if hasBattery}}
+      <p class="font-20">{{pageTwoContent.paragraphThree}}</p>
+      {{/if}}
+      <p class="font-20">{{{pageTwoContent.endSentence}}}</p>
+    </div>
+
+    {{!-- Net Metering --}}
+  <div class="row mt-0 col-12">
+   
+    
+    <div class="col-12 ">
+      <h1>Net Energy Metering [NEM]</h1> 
+    </div>
+    <div class="col-12 font-20">
+      <p>{{{pageThreeContent.paragraphOne}}}</p>
+    </div>
+
+     <div class="col-md-6 col-sm-12 mt-3">
+      <h3 class="text-center ml-1">Example before solar</h3>
+      <img src="/img-content/exampleBefore.png" class="img-fluid rounded">
+    </div>
+    <div class="col-md-6 col-sm-12 mt-3">
+      <h3 class="text-center ml-1">Example after solar</h3>
+      <img src="/img-content/exampleAfter.png" class="img-fluid rounded">
+    </div>
+
+    
+    <div class="col-md-6 col-sm-12 mt-4">
+      <h3>Net metering - What it doesn’t offset: </h3>
+      <ul class="font-20">
+        <li>Your gas bill</li>
+        <li>Meter fee</li>
+        <li>Non-bypassable charges [NBCs]</li>
+        <li>Consumption beyond production</li>
+      </ul>
+      <h3>System Monitoring Software</h3>
+      <p class="font-20">{{pageTwoContent.systemMonitoringSoftware}}</p>
+       
+    </div>
+    <div class="col-md-6 col-sm-12 mt-4">
+      <img src="/img-content/ipadWithGraph.png" class="img-fluid rounded shadow">
+    </div>
+    
+  </div>
+
+    
+  
+  </div>
+</div>

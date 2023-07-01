@@ -1,0 +1,140 @@
+<div class="compare__price hide_target" id="compare__price">
+  <div class="price__options-title">
+    <h1>Compare Proposals</h1>
+  </div>
+  <div class="compare__price-graph">
+    <table class="table table-sm table-bordered text-center">
+      <tbody>
+        <tr>
+          <th>Title</th>
+          {{#each compare}}
+          <td class={{{id}}}>{{{title}}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Financing</th>
+          {{#each compare}}
+          <td class={{{id}}}>{{{name}}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th># Modules</th>
+          {{#each compare}}
+          <td class={{{id}}}>{{{num_of_modules}}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>DC Kw</th>
+          {{#each compare}}
+          <td class={{{id}}}>{{{dc_kw}}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Annual kWhr</th>
+          {{#each compare}}
+          <td class={{{id}}}>{{{toNumber annual}}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>% Offset</th>
+          {{#each compare}}
+          <td class={{{id}}}>{{{toNumber percent_offset}}}%</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Final Price</th>
+          {{#each compare}}
+          <td class={{{id}}}>{{{toMoney price}}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Tax Credit Value</th>
+          {{#each compare}}
+          {{#ifCon tax_credit "!=" 0}}
+          <td class={{{id}}}>{{{toMoney tax_credit}}}</td>
+          {{else}}
+          <td class={{{id}}}>-</td>
+          {{/ifCon}}
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Net Price</th>
+          {{#each compare}}
+          {{#ifCon net_price "!=" 0}}
+          <td class={{{id}}}>{{{toMoney net_price}}}</td>
+          {{else}}
+          <td class={{{id}}}>-</td>
+          {{/ifCon}}
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Monthly Payment</th>
+          {{#each compare}}
+          {{#ifCon monthly_payment "!=" 0}}
+          <td class={{{id}}}>{{{toMoney monthly_payment}}}</td>
+          {{else}}
+          <td class={{{id}}}>-</td>
+          {{/ifCon}}
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Tax Credit Loan Repayment</th>
+          {{#each compare}}
+          {{#ifCon repayment "!=" 0}}
+          <td class={{{id}}}>{{{toMoney repayment}}}</td>
+          {{else}}
+          <td class={{{id}}}>-</td>
+          {{/ifCon}}
+          {{/each}}
+        </tr>
+        <tr>
+          <th>25 Year Solar Value</th>
+          {{#each compare}}
+          {{#ifCon saving_25yr "!=" 0}}
+          <td class={{{id}}}>{{{toMoney saving_25yr}}}</td>
+          {{else}}
+          <td class={{{id}}}>-</td>
+          {{/ifCon}}
+          {{/each}}
+        </tr>
+        <tr class="compare__price-warranty">
+          <th class="compare__price-warranty">Warranty Info</th>
+          {{#each compare}}
+          <td class={{{id}}}></td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th style="height: 50px;"></th>
+          {{#each compare}}
+          <td class={{{id}}}></td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Module</th>
+          {{#each compare}}
+          <td class={{{id}}}>{{{HTML module_warranty "<h5>Module</h5>"}}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Monitoring</th>
+          {{#each compare}}
+          <td class={{{id}}}>{{{HTML monitoring_warranty "<h5>Monitoring</h5>"}}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Inverter</th>
+          {{#each compare}}
+          <td class={{{id}}}>{{{HTML inverter_warranty "<h5>Micro Inverter</h5>"}}}</td>
+          {{/each}}
+        </tr>
+        <tr class="d-print-none">
+          <th></th>
+          {{#each compare}}
+          <td class={{{id}}}><button class="remove_button btn btn-outline-danger btn-block"
+              data-target-id={{{id}}}>Remove</button></td>
+          {{/each}}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

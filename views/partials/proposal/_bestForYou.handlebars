@@ -1,0 +1,136 @@
+<h1 class="text-center bg-lightBlue mt-4 table__heading" id="ProposalComparison">Which Option Is Best For You?</h1>
+<table class="table table-sm table-bordered text-center">
+  <tbody>
+    <tr class="striped">
+      <th></th>
+      {{!-- Without Solar --}} {{#each currentPathArrays}}
+      <td>Without Solar</td>
+      {{/each}} {{!-- Three Options --}} {{#each pricesArray}} {{#if financing_institution}}
+      <td>{{financing_institution}}</td>
+      {{else}}
+      <td>{{name}}</td>
+      {{/if}} {{/each}}
+    </tr>
+    <tr>
+      <th>System Price<sup style="font-weight:normal;">4</sup></th>
+      <td>-</td>
+      {{!-- Three Options --}} {{#each pricesArray}} {{#if yearSaving25}}
+      <td>{{toMoney gross}}</td>
+      {{else}}
+      <td>-</td>
+      {{/if}} {{/each}}
+    </tr>
+    <tr class="striped">
+      <th>Tax Credit Value<sup style="font-weight:normal;">5</sup></th>
+      <td>-</td>
+      {{!-- Three Options --}} {{#each pricesArray}} {{#if yearSaving25}}
+      <td>{{toMoney incentive}}</td>
+      {{else}}
+      <td>-</td>
+      {{/if}} {{/each}}
+    </tr>
+    <tr>
+      <th>Net System Price</th>
+      <td>-</td>
+      {{!-- Three Options --}} {{#each pricesArray}} {{#if yearSaving25}}
+      <td>{{toMoney net}}</td>
+      {{else}}
+      <td>-</td>
+      {{/if}} {{/each}}
+    </tr>
+     {{!-- Balloon Payment Info --}}
+    {{#if proposal.balloon_payment_2__f_}}
+    <tr class="striped">
+      <th>Tax Credit Repayment<sup style="font-weight:normal;">2</sup></th>
+      {{!-- Without Solar --}} 
+      {{#each currentPathArrays}}
+      <td>-</td>
+      {{/each}} {{!-- Three Options --}} 
+      {{#each pricesArray}} {{#if yearSaving25}}
+      <td>{{toMoney balloon}}</td>
+      {{else}}
+      <td>-</td>
+      {{/if}} {{/each}}
+    </tr>
+    {{/if}}
+    <tr>
+      <th>Monthly Payment<sup style="font-weight:normal;">2</sup></th>
+      {{!-- Without Solar --}} {{#each currentPathArrays}}
+      <td>{{toMoney payment}}</td>
+      {{/each}} {{!-- Three Options --}} {{#each pricesArray}} {{#if yearSaving25}}
+      <td>{{toMoney payment}}</td>
+      {{else}}
+      <td>-</td>
+      {{/if}} {{/each}}
+    </tr>
+    <tr class="striped">
+      <th>25 Year $/kWhr<sup style="font-weight:normal;">2</sup></th>
+      {{!-- Without Solar --}}
+       {{#each currentPathArrays}}
+      <td>{{toMoney kWh}}</td>
+      {{/each}} {{!-- Three Options --}} {{#each pricesArray}} {{#if yearSaving25}}
+      <td>{{toMoney kWh}}</td>
+      {{else}}
+      <td>-</td>
+      {{/if}} {{/each}}
+    </tr>
+    <tr>
+      <th>25 Year Cost<sup style="font-weight:normal;">3</sup></th>
+      {{!-- Without Solar --}} {{#each currentPathArrays}}
+      <td class="text-danger">{{toMoney yearCost25}}</td>
+      {{/each}} {{!-- Three Options --}} {{#each pricesArray}}
+      <td></td>
+      {{/each}}
+    </tr>
+    <tr class="striped">
+      <th>
+        <a data-toggle="collapse" href="#collapse{{proposal.update_id}}" role="button" aria-expanded="false" aria-controls="collapse{{proposal.update_id}}">
+          <img src="/img-content/infoButton.png" class="img-fluid infoButton" style="height:18px; margin-top:-5px;"></a>
+        25 Year Savings<sup style="font-weight:normal;">3</sup>
+      </th>
+      {{!-- Without Solar --}} {{#each currentPathArrays}}
+      <td>-</td>
+      {{/each}} {{!-- Three Options --}} {{#each pricesArray}} {{#if yearSaving25}}
+      <td class="text-success">{{toMoney yearSaving25}}</td>
+      {{else}}
+      <td>-</td>
+      {{/if}} {{/each}}
+    </tr>
+  </tbody>
+</table>
+
+{{!--Hidden Information  --}}
+<div class="collapse d-print-none" id="collapse{{proposal.update_id}}">
+  <div class="card card-body">
+    <h4>Break Even:</h4>
+    <div class="row">
+
+      {{#each pricesArray}}
+        {{#ifCon name "!==" "Lease"}}
+        <div class="col-md-2 col-sm-12">
+          <ul>
+            <li>{{name}}</li>
+            <li>{{breakEven}} Years</li>
+          </ul>
+        </div>
+        {{/ifCon}}
+      {{/each}}
+    </div>
+    <h4>System removal and reinstall cost:</h4>
+    <ul>
+      <li>{{toMoney proposal.re_roof_cost}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="d-flex justify-content-around align-items-center d-print-none mb-2">
+  {{#each pricesArray}}
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" data-id="{{name}}{{title}}" {{checked}}>
+      <label class="labelCompare" for="compare">Compare {{name}}</label>
+    </div>
+  {{/each}}
+    <li class="nav-link" data-theLi="true" data-id="compareProposal">
+      <a class="btn btn-primary text-white compareButton" data-id="compareProposal" data-theButton="true">View Comparison</a>
+    </li>
+</div>

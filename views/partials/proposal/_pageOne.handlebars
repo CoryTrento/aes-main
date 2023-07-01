@@ -1,0 +1,66 @@
+<div class="mb-5">
+
+  {{!--FIRST ROW ********************************************************************** FIRST ROW --}}
+  <div class="row justify-content-center ">
+    <div class="col-md-5 col-sm-12 align-self-end mb-2">
+      <img src="" alt="">
+      <img src="/img-content/AES-Logo.png"
+        class="img-fluid" id="logo">
+    </div>
+    <div class="col-md-7 col-sm-12 align-self-end">
+
+      <p class="mb-0 float-md-right float-sm-left" style="font-size:18px;">
+        <b>Customer:</b>  {{{customerNameProp}}}
+        <br><b>Agent:</b> {{{agentName}}}
+        <br><b>Office:</b> (530) 345-6980
+        <br><b>Direct:</b> {{agentPhone}}
+        <br><b>Email:</b> <i>{{agentEmail}}</i></p>
+    </div>
+  </div>
+  <hr class="mt-0" id="hrHeader"> {{!-- SECOND ROW ********************************************************************** SECOND ROW --}}
+  <div class="row">
+    {{!-- Stretched PHOTO **************************************************************** STRETCHED PHOTO --}}
+    <div class="col-12 mt-1">
+      <img src="{{pageOneContent.pageOnePhoto}}" alt="" class="img-fluid mb-3 rounded">
+    </div>
+
+  </div>
+
+  {{!-- THIRD ROW ********************************************************************** THIRD ROW --}}
+  <div class="row p-0 m-0">
+
+    {{!-- ABOUT AES *********************************************************************** ABOUT AES --}}
+    <div class="col-md-6 col-sm-12 align-self-start pl-0">
+      <h1 class="text-left">About Us</h1>
+      <p class="text-left font-20">
+        {{{pageOneContent.paragraphOne}}}
+      </p>
+      <p class="text-left font-20">
+        {{{pageOneContent.paragraphTwo}}}
+      </p>
+
+    </div>
+
+    {{!-- AGENT INFO / AGENT PHOTO ***************************************************** AGENT INFO / AGENT PHOTO --}}
+    <div class="col-md-6 col-sm-12 card rounded p-4 align-self-center agent__info">
+
+      <div class="">
+        <div id="floated">
+          <img src="{{agentPhoto}}" class="img-fluid p-1" id="headShot">
+        </div>
+        <h4 class="display-4 mt-2 m-0" style="font-size:180%;">{{agentName}}</h4>
+        <h4 class="display-4 mb-3 mt-0 spBlue" style="font-size:180%;">Energy Consultant</h4>
+        <p class="text-left font-20" id="agentBio">{{{agentBio}}}</p>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+  <div class="col-12">
+    <img src="{{pageOneContent.awardPhoto}}"
+      alt="" class="img-fluid mt-0" style="">
+  </div>
+</div>

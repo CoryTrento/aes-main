@@ -1,0 +1,11 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js" integrity="sha256-qSIshlknROr4J8GMHRlW3fGKrPki733tLq+qeMCR05Q=" crossorigin="anonymous"></script>
+{{> presentation/nav_footer/_nav}}
+{{> presentation/pages/_coverpage}}
+{{> presentation/pages/_whatyoushouldknow}}
+{{#each pricing}}
+  {{> presentation/pages/_price}}
+{{/each}}
+{{> presentation/pages/_compare}}
+{{> presentation/nav_footer/_footer}}
+<script src="/javascript/presnav.js"></script>
+<script src="/javascript/metergraph.js"></script>

@@ -1,0 +1,19 @@
+<div class="page leading-relaxed text-gray-800" id="compare">
+  <div class="container mx-auto pt-10">
+    {{> offering/layout/compare/header}}
+    {{! Compare }}
+    <table
+      class="mt-5 pr-2 w-full compare-table"
+      style="border-collapse: separate;
+    border-spacing: 5px;"
+    >
+      {{> offering/layout/compare/logo-list}}
+      
+      {{> offering/layout/compare/finance}}
+      {{#if hideCash}}
+        {{> offering/layout/compare/cash}}
+      {{/if}}
+    </table>
+    {{> offering/layout/compare/disclaimer}}
+  </div>
+</div>

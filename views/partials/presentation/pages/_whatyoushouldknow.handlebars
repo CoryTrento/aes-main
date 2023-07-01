@@ -1,0 +1,197 @@
+<div class="know hide_target" id="know">
+
+  {{!-- Header --}}
+  <header class="know__header">
+    {{!-- Logo --}}
+    <div class="know__header__logo">
+      <img src={{{content._fid_31}}} alt="">
+    </div>
+    {{!-- Info --}}
+    <div class="know__header__info">
+      <p><b>Customer:</b> {{{customerName}}}</p>
+      <p><b>Agent:</b> {{{agent._fid_58}}}</p>
+      <p><b>Office:</b> (530) 345-6980</p>
+      <p><b>Direct:</b> {{{agent._fid_31}}}</p>
+      <p><b>Email:</b> {{{agent._fid_9}}}</p>
+    </div>
+  </header>
+
+  <main>
+    {{!-- Page One --}}
+    <div class="page__one pb-always">
+      <div class="page__one__worker">
+        <img class="shadow-sm" src={{{content._fid_72}}} alt="">
+      </div>
+      <div class="page__one__info">
+        <div class="page__one__info-aes">
+          <h1>About Us</h1>
+          <p>{{{content._fid_9}}}</p>
+          <br>
+          <p>{{{content._fid_10}}}</p>  
+        </div>
+        {{!-- Agent --}}
+        <div class="page__one__info-agent">
+          <div class="agent__card shadow">
+             <img src={{{agent._fid_111}}} alt="agent">
+              <h3>{{{agent._fid_58}}}</h3>
+              <h2>Energy Consultant</h2>
+              <p>{{{agent._fid_115}}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="page__one__certs">
+        <img src={{{content._fid_64}}} alt="">  
+      </div>
+    </div>
+
+    {{!-- Page Two --}}
+    <div class="page__two pb-always">
+      {{!-- Image of house --}}
+      <div class="page__two__house">
+        <img src={{{content._fid_69}}} alt="">
+      </div>
+
+      <div class="page__two__main">
+        <h1>Your Home - Your Energy</h1>
+        <p>{{{content._fid_11}}}</p>
+        <p>{{{content._fid_12}}}</p>
+        <p>{{{content._fid_14}}}</p>
+  
+        <h1 class="mt-4">Net Energy Metering [NEM]</h1>
+        <p>{{{content._fid_44}}}</p> 
+      </div>
+      
+      {{!-- Examples --}}
+      <div class="page__two__example">
+        <div class="page__two__example-before">
+          <h2>Example before solar</h2>
+          <img src={{{content._fid_67}}} alt="">
+        </div>
+        <div class="page__two__example-after">
+          <h2>Example after solar</h2>
+          <img src={{{content._fid_66}}} alt="">
+        </div>
+      </div>
+      {{!-- Net Metering --}}
+      <div class="page__two__net">
+        <div class="page__two__net--text">
+          <h2>Net metering - What it doesn’t offset:</h2>
+          <ul>
+            <li>Your gas bill</li>
+            <li>Meter fee</li>
+            <li>Non-bypassable charges [NBCs]</li>
+            <li>Consumption beyond production</li>
+          </ul>
+          <h2 class="mt-4">System Monitoring Software</h2>
+          <p>All of our systems come with monitoring software, so you can keep track of how your system is operating in a user-friendly format. System monitoring requires an internet connection.</p>
+        </div>
+        <div class="page__two__net--image">
+          <img class="box__small" src={{{content._fid_71}}} alt="">
+        </div>
+      </div>
+
+    </div>
+
+    {{!-- Page Three --}}
+    <div class="page__three pb-always">
+
+      <div class="page__three__efficiency">
+
+        <div class="page__three__efficiency-card-one">
+          <div class="pres__card box__medium">
+            <div class="pres__card__header">
+              Standard Efficiency Systems
+            </div>
+            <img src={{{content._fid_75}}} alt="">
+            <div class="pres__card__body">
+              <p>{{{content._fid_15}}}</p>
+              <p>{{{content._fid_16}}}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="page__three__efficiency-card-two">
+          <div class="pres__card box__medium">
+            <div class="pres__card__header">
+              High-Efficiency Systems
+            </div>
+            <img src={{{content._fid_68}}} alt="">
+            <div class="pres__card__body">
+              <p>{{{content._fid_17}}}</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="page__three__financing">
+        <h1>Financing Options</h1>
+        <h3 class="mt-4">Incentives:</h3>
+        <ul>
+          <li>{{{content._fid_45}}}</li>
+          <li>{{{content._fid_46}}}</li>
+          <li>{{{content._fid_47}}}</li>
+        </ul>
+      </div>
+
+      <div class="page__three__cards">
+        {{!-- Card One --}}
+        <div class="page__three__cards-one">
+          <div class="finance__card box__medium">
+            <div class="finance__card__header">
+              Cash or personal loan
+            </div>
+            <div class="finance__card__img">
+              <img src={{{content._fid_65}}} alt="">
+            </div>
+            <div class="finance__card__body">
+              <p>{{{content._fid_48}}}</p>
+            </div>
+            <div class="finance__card__footer">
+              <p>{{{content._fid_52}}}</p>
+            </div>
+          </div>
+        </div>
+
+        {{!-- Card Two --}}
+        <div class="page__three__cards-two">
+          <div class="finance__card box__medium">
+            <div class="finance__card__header">
+              AES coordinated loan
+            </div>
+            <div class="finance__card__img">
+              <img src={{{content._fid_74}}} alt="">
+            </div>
+            <div class="finance__card__body">
+              <p>{{{content._fid_49}}}</p>
+            </div>
+            <div class="finance__card__footer">
+              <p>{{{content._fid_53}}}</p>
+            </div>
+          </div>
+        </div>
+
+        {{!-- Card three --}}
+        <div class="page__three__cards-three">
+          <div class="finance__card box__medium">
+            <div class="finance__card__header">
+              Lease
+            </div>
+            <div class="finance__card__img">
+              <img src={{{content._fid_73}}} alt="">
+            </div>
+            <div class="finance__card__body">
+              <p>{{{content._fid_50}}}</p>
+            </div>
+            <div class="finance__card__footer">
+              <p>{{{content._fid_54}}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+

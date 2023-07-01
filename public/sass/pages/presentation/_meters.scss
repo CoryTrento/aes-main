@@ -1,0 +1,15 @@
+.meter__info {
+  & th {
+    font-size: 1.2rem;
+  }
+  & td {
+    font-size: 1.2rem;
+  }
+}
+
+.meter__graph {
+  & canvas {
+    padding: 40px 40px;
+    max-width: 100%;
+  }
+}

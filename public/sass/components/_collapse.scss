@@ -1,0 +1,14 @@
+.collapse {
+  & .card {
+    padding: 2rem;
+    & h4 {
+      text-transform: capitalize;
+      font-size: 1.6rem !important;
+      margin-bottom: 1rem;
+    }
+
+    & ul {
+      font-size: 2rem;
+    }
+  }
+}

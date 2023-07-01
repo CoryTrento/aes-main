@@ -1,0 +1,76 @@
+<div class="meter__info">
+  {{!-- Title --}}
+  <div class="price__title d-none d-print-block">
+    <h1>{{{price_title}}}</h1>
+  </div>
+  <div class="price__options-title">
+    <h1>Meter #{{{meter_name}}}</h1>
+  </div>
+  <table class="table table-sm table-bordered text-center">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">January</th>
+        <th scope="col">February</th>
+        <th scope="col">March</th>
+        <th scope="col">April</th>
+        <th scope="col">May</th>
+        <th scope="col">June</th>
+        <th scope="col">July</th>
+        <th scope="col">August</th>
+        <th scope="col">September</th>
+        <th scope="col">October</th>
+        <th scope="col">November</th>
+        <th scope="col">December</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="graph_data" data-value={{{month_name}}} data-production={{{production}}} data-canvas={{../_fid_349}}>
+        <th>Current Usage</th>
+        {{#each meter_usage}}
+        <td>{{{toNumber this}}}</h1>
+          {{/each}}
+      </tr>
+      <tr>
+        <th>Cost</th>
+        {{#each meter_cost}}
+        <td>{{{toMoneyDec this}}}</h1>
+          {{/each}}
+      </tr>
+      <tr>
+        <th>System Production</th>
+        {{#each system_production}}
+        <td>{{{this}}}</h1>
+          {{/each}}
+      </tr>
+      <tr>
+        <th>Offset kWh</th>
+        {{#each month_offset}}
+        {{#ifCon this "<" "0"}}
+        <td class="text-success">{{{toNumber this}}}</td>
+        {{else}}
+        <td class="text-danger">{{{toNumber this}}}</td>
+        {{/ifCon}}
+        {{/each}}
+      </tr>
+      <tr class="d-none">
+        <th>Offset Value</th>
+        {{#each month_saving}}
+        {{#ifCon this "<" "0"}}
+        <td class="text-success">{{{toMoney this}}}</td>
+        {{else}}
+        <td class="text-danger">{{{toMoney this}}}</td>
+        {{/ifCon}}
+        {{/each}}
+      </tr>
+    </tbody>
+  </table>
+  <div class="price__options-title">
+    <h1>Net Usage After Solar</h1>
+  </div>
+  <table class="table table-sm table-bordered text-center">
+    <tr>
+      <td> {{> presentation/pages/_metergraph}}</td>
+    </tr>
+  </table>
+</div>

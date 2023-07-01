@@ -1,0 +1,13 @@
+.btn-aes {
+  text-decoration: none;
+  background-color: $color-proposal-dark;
+  color: $color-white-darken;
+  outline : none;
+
+  &:hover {
+    text-decoration: none;
+    background-color: $color-proposal-primary;
+    color: $color-white-darken;
+  }
+  &:active, &:focus, &:visited { outline: none; -moz-outline-style: none; }
+}

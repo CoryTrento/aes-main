@@ -1,0 +1,187 @@
+<div class="price hide_target" id={{{_fid_349}}}>
+  {{!-- Title --}}
+  <div class="price__title">
+    <h1>{{{_fid_6}}}</h1>
+  </div>
+
+  {{!-- Header --}}
+  <div class="price__header">
+    <div class="price__header-info">
+      <p><b>Number Of Modules:</b> {{{_fid_73}}}</p>
+      <p><b>Manufacturer:</b> {{{_fid_350}}}</p>
+      <p><b>Module Type:</b> {{{_fid_351}}}</p>
+      <p class="d-print-none"><b>Module Spec Sheet: </b><a href="{{{_fid_401}}}" target="_blank"><i
+            class="fas fa-file-invoice"></i></a></p>
+    </div>
+    <div class="price__header-info">
+      <p><b>Total DC kW:</b> {{{_fid_74}}} (kW)</p>
+      <p><b>Annual Usage:</b> {{{toNumber _fid_335}}} (kWh/y)</p>
+      <p><b>Annual Production<sup>1</sup> :</b> {{{toNumber _fid_336}}} (kWh/y)</p>
+    </div>
+    <div class="price__header-offset">
+      <div class="price__header-offset-graph">
+        <p>kW Offset</p>
+        <svg width="100px" height="100px" viewBox="0 0 42 42" class="donut justify-content-start">
+          <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+          <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4"
+            stroke-width="3"></circle>
+          <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#12aa40"
+            stroke-width="3" stroke-dasharray="{{{_fid_352}}} {{{_fid_353}}}" stroke-dashoffset="3"></circle>
+        </svg>
+        <p>{{{toNumber _fid_352}}}%</p>
+      </div>
+      <p class="ml-4 text-success">Efficiency: {{{_fid_354}}}</p>
+    </div>
+  </div>
+
+  {{!-- Best for you --}}
+  <div class="price__options shadow-sm">
+
+    <div class="price__options-title">
+      <h1>Which Option Is Best For You?</h1>
+    </div>
+
+    {{!-- Table --}}
+    <div class="price__options-graph">
+      <table class="table table-sm table-bordered text-center">
+        <tbody>
+          <tr class="striped">
+            <th></th>
+            <td>Without Solar</td>
+            {{#each cost}}
+            <td>{{{name}}}</td>
+            {{/each}}
+          </tr>
+          <tr>
+            <th>System Price<sup style="font-weight:normal;">4</sup></th>
+            <td>-</td>
+            {{#each cost}}
+            {{#ifCon price "!=" "0.00"}}
+            <td>{{{toMoney price}}}</td>
+            {{else}}
+            <td>-</td>
+            {{/ifCon}}
+            {{/each}}
+          </tr>
+          <tr class="striped">
+            <th>Tax Credit Value<sup style="font-weight:normal;">5</sup></th>
+            <td>-</td>
+            {{#each cost}}
+            {{#ifCon tax_credit "!=" "0.00"}}
+            <td>{{{toMoney tax_credit}}}</td>
+            {{else}}
+            <td>-</td>
+            {{/ifCon}}
+            {{/each}}
+          </tr>
+          <tr>
+            <th>Net System Price</th>
+            <td>-</td>
+            {{#each cost}}
+            {{#ifCon net_price "!=" "0.00"}}
+            <td>{{{toMoney net_price}}}</td>
+            {{else}}
+            <td>-</td>
+            {{/ifCon}}
+            {{/each}}
+          </tr>
+          <tr class="striped">
+            <th>Tax Credit Repayment<sup style="font-weight:normal;">2</sup></th>
+            <td>-</td>
+            {{#each cost}}
+            {{#ifCon repayment "!=" "0.00"}}
+            <td>{{{toMoney repayment}}}</td>
+            {{else}}
+            <td>-</td>
+            {{/ifCon}}
+            {{/each}}
+          </tr>
+          <tr>
+            <th>Monthly Payment<sup style="font-weight:normal;">2</sup></th>
+            <td>{{{toMoneyDec _fid_369}}}</td>
+            {{#each cost}}
+            {{#ifCon monthly_payment "!=" "0.00"}}
+            <td>{{{toMoney monthly_payment}}}</td>
+            {{else}}
+            <td>-</td>
+            {{/ifCon}}
+            {{/each}}
+          </tr>
+          <tr class="striped">
+            <th>25 Year $/kWhr<sup style="font-weight:normal;">2</sup></th>
+            <td>{{{toMoney _fid_371}}}</td>
+            {{#each cost}}
+            <td>{{{toMoney kWh_25yr}}}</td>
+            {{/each}}
+          </tr>
+          <tr>
+            <th>25 Year Cost<sup style="font-weight:normal;">3</sup></th>
+            <td class="text-danger">{{{toMoney _fid_368}}}</td>
+            {{#each cost}}
+            <td></td>
+            {{/each}}
+          </tr>
+          <tr class="striped">
+            <th>
+              25 Year Solar Value<sup style="font-weight:normal;">3</sup>
+            </th>
+            <td>-</td>
+            {{#each cost}}
+            <td class="text-success">{{{toMoney saving_25yr}}}</td>
+            {{/each}}
+          </tr>
+          <tr class="d-print-none">
+            <th class="info_icon">Compare Options <i class="fas fa-info-circle" data-toggle="collapse"
+                href="#collapse{{{_fid_349}}}" role="button" aria-expanded="false"
+                aria-controls="collapse{{{_fid_349}}}"></i></th>
+            <td class="text-danger">
+              <button class="compare__button" data-target-id="compare__price">View Comparison</button>
+            </td>
+            {{#each cost}}
+            {{#ifCon compare "==" "1"}}
+            <td><input class="compare_checkbox" type="checkbox" id="input{{{id}}}" data-target-id={{{id}}} checked></td>
+            {{else}}
+            <td><input class="compare_checkbox" type="checkbox" id="input{{{id}}}" data-target-id={{{id}}}></td>
+            {{/ifCon}}
+            {{/each}}
+          </tr>
+        </tbody>
+      </table>
+
+      {{!-- Collapse --}}
+      <div class="collapse d-print-none" id="collapse{{{_fid_349}}}">
+        <div class="card card-body">
+          <h4>System removal and reinstall cost: {{{toMoney _fid_615}}}</h4>
+          {{!-- Cash Price Break Even --}}
+          {{#if _fid_622}}
+          <h4>Cash Price Break Even: {{{_fid_622}}}yrs</h4>
+          {{/if}}
+          {{!-- Loan Price Break Even --}}
+          {{#if _fid_623}}
+          <h4>Loan Price Break Even: {{{_fid_623}}}yrs</h4>
+          {{/if}}
+          {{!-- Lease Price Break Even --}}
+          {{#if _fid_624}}
+          <h4>Lease Price Break Even: {{{_fid_624}}}yrs</h4>
+          {{/if}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {{!-- Warranty / Promotions --}}
+  {{> presentation/pages/_included}}
+  {{!-- Disclaimers --}}
+  {{> presentation/pages/_disclaimer}}
+
+  {{#each readings}}
+  {{!-- Meter Vs Production --}}
+  {{> presentation/pages/_meters}}
+  {{/each}}
+  {{#if readings}}
+  <div class="mt-4 d-none d-print-block">
+    {{!-- Disclaimers --}}
+    {{> presentation/pages/_disclaimer}}
+  </div>
+  {{/if}}
+</div>

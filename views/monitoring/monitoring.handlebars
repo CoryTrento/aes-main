@@ -1,0 +1,49 @@
+<div class="monitoring">
+    <img class="monitoring__img" src="/img/aeslogo.png" />
+    <h1 class="monitoring__text">Monitoring</h1>
+    <form class="monitoring__form" ref='uploadForm' id='uploadForm' action='/monitoring' method='post'
+        encType="multipart/form-data">
+
+        <div class="monitoring__form-main">
+            <div class="monitoring__form-input">
+                <label for="table">Company:</label>
+                <select name="table" id="table">
+                    <option value=""></option>
+                    <option value="bpgssr4hc">Deck</option>
+                    <option value="bpgssvkqb">SMA</option>
+                    <option value="bphzwy2vn">PowerTrack</option>
+                </select>
+            </div>
+
+            <div class="monitoring__form-input">
+                <label for="month">Month:</label>
+                <select name="month" id="month">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
+            </div>
+
+            <div class="monitoring__form-input">
+                <label for="year">Year:</label>
+                <input type="number" name="year" min="1900" max="2099" step="1" value="2019">
+            </div>
+        </div>
+        <hr>
+        <div class="monitoring__form-main">
+        <div class="monitoring__form-submit">
+            <input class="submit__file" type="file" name="sampleFile" />
+            <input class="submit__button" type='submit' value='Upload' />
+        </div>
+        </div>
+    </form>
+</div>

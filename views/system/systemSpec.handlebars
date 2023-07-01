@@ -1,0 +1,218 @@
+<style>
+
+  @media print {
+    .system-body{
+      background-color: transparent !important;
+      font-family: serif;
+      font-size: 10pt !important;
+      line-height: 10px !important;
+      width: 100vw !important;
+    }
+    html{
+      background-color: transparent !important;
+      
+    }
+    .d-none{
+    display: block !important;
+    }
+    .pb-always{
+    page-break-after: always !important; 
+    }
+
+    #customerInfo,
+    #alertInfo,
+    #financeInfo,
+    #systemInfo {
+      border-left: none !important;
+      border-bottom-left-radius: 0px !important;
+    }
+
+    
+  }
+
+
+.fancy {
+  display: flex;
+}
+
+.fancy__title {
+  font-size: 30px;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+
+.fancy__hr {
+  margin-left: 20px;
+  margin-right: 12px;
+  transform: translateY(-20px);
+  flex: 2;
+}
+
+.fancy__hr--blue {
+  border-bottom: 1px solid #2E76B9;
+}
+
+.fancy__hr--red {
+  border-bottom: 1px solid rgb(255, 0, 0);
+}
+
+.fancy__hr--orange {
+  border-bottom: 1px solid #F36C21;
+}
+
+.fancy__hr--green {
+  border-bottom: 1px solid #1A8C47;
+}
+  
+  
+
+  html{
+    background-color: #e5e5e5;
+  }
+
+  .system-body{
+    background-color: #eaf1fa;
+    font-size: 20px;
+    line-height: 2;
+  }
+
+
+  h6{
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  li {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  td {
+    font-size: inherit;
+    line-height: inherit;
+  }
+  
+  
+  
+  
+  .border-r{
+    border-right: 1px solid #2E76B9;;
+  }
+  .d-none{
+    display: none;
+  }
+
+  .ulHeader {
+    font-size: 25px;
+  }
+
+  .customerHeader {
+    font-size: 19px;
+  } 
+
+  .hrHeader {
+    z-index: 1;
+    border: .5px solid black;
+  }
+
+  #customerInfo{
+    width: 99%;
+    
+    border-bottom: 1px solid #2E76B9;
+    
+    padding: 10px;
+  } 
+
+  #alertInfo{
+    width: 99%;
+    border-bottom: 1px solid rgb(255, 0, 0);
+    padding: 10px;
+  } 
+
+  #alertInfo :last-child hr{
+    display: none;
+  }
+ 
+  #financeInfo{
+    width: 99%;
+    
+    border-bottom: 1px solid #F36C21;
+   
+    padding: 10px;
+  } 
+
+  #systemInfo{
+    width: 99%;
+    
+    border-bottom: 1px solid #1A8C47;
+  
+    padding: 10px;
+    line-height: inherit;
+  }
+
+ 
+</style>
+
+<div class="system-body">
+  <div class="container bg-white">
+    <div class="pt-4">
+        {{> main/_errors}}
+      <div class="main-content">
+        {{#if error}}
+        {{!-- No Erros ******************************************************************************** --}}
+        {{else}}
+        <div class="fancy">
+          <h3 class="fancy__title">Customer / Energy Consultant</h3>
+          <span class="fancy__hr fancy__hr--blue"></span>
+        </div>
+          
+          {{> SystemSpec/_customerInfo}}
+
+            
+          {{#if proposal.alerts}}
+            <div class="fancy">
+              <h3 class="fancy__title mt-4">Alerts </h3>
+              <span class="fancy__hr fancy__hr--red"></span>
+            </div>
+            {{> SystemSpec/_alerts}}
+          {{/if}}
+
+           <div class="fancy">
+              <h3 class="fancy__title mt-4">Financing Information</h3>
+              <span class="fancy__hr fancy__hr--orange"></span>
+            </div>
+         
+          {{#ifCon proposal.payment_method '===' 'Cash'}}
+            {{> SystemSpec/_cashInfo}}
+          {{/ifCon}}
+          {{#ifCon proposal.payment_method '===' 'Loan'}}
+            {{> SystemSpec/_loanInfo}}
+          {{/ifCon}}
+          {{#ifCon proposal.payment_method '===' 'Lease'}}
+            {{> SystemSpec/_leaseInfo}}
+          {{/ifCon}}
+
+          
+            <div class="fancy">
+              <h3 class="fancy__title mt-4">System Information</h3>
+              <span class="fancy__hr fancy__hr--green"></span>
+            </div>
+         
+          {{> SystemSpec/_systemInfo}}
+
+         
+              {{!-- Agreement Image *********************************************************************** --}}
+              <div class="row">
+                <div class="col-12 text-center">
+                  {{#if proposal.propImg}}
+                    <img src={{proposal.propImg}} class="" style="min-height:600px;max-height:1000px; width: auto; margin: 0 auto;">
+                  {{/if}}
+                </div>
+              </div>
+              
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

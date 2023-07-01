@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap');
+//Utils
+@import "utils/variables";
+@import "utils/queries";
+@import "utils/buttons";
+@import "utils/colors";
+@import "utils/_flex";
+
+//Components
+@import "components/proposalFooter";
+@import "components/main-nav";
+@import "components/_presentation-nav";
+@import "components/_shadows";
+@import "components/collapse";
+
+// Pages
+@import "pages/home";
+@import "pages/admin.scss";
+@import "pages/systemSpec";
+@import "pages/monitoring";
+@import "pages/presentation/cover";
+@import "pages/presentation/whatyoushouldknow";
+@import "pages/presentation/price";
+@import "pages/presentation/included";
+@import "pages/presentation/disclaimer";
+@import "pages/presentation/compare";
+@import "pages/presentation/meters";
+@import "pages/presentation/globlas";
+@import "pages/site-survey.scss";
+

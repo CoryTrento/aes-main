@@ -1,0 +1,156 @@
+
+{{!-- Financing Information *********************************************************************** --}}
+<div class="mb-3">
+  <div class="row ml-0 mt-3" id="financeInfo">
+    {{!-- Payment Method, Material Cost, Price Per Watt --}}
+    <div class="col-4">
+      <h5><b>Payment Method:</b> {{proposal.payment_method}}</h5>
+      {{#ifCon proposal.payment_method '==' 'Cash'}}
+      <h5><b>Contract Amount:</b> {{toMoneyDec proposal.agreement_price__f_}}</h5>
+      {{/ifCon}}
+      {{#ifCon proposal.payment_method '!=' 'Cash'}}
+      <h5><b>Contract Amount:</b> {{toMoneyDec proposal.agreement_price__f_}}</h5>
+      {{/ifCon}}
+      <h5><b>Total Materials Cost: </b>{{toMoneyDec proposal.total_materials_cost__at_lock_}}</h5>
+    </div>
+    {{!-- Finance Institution, Value used for commission--}}
+    <div class="col-4">
+      {{#ifCon proposal.payment_method '!=' 'Cash'}}
+      <h5><b>Finance Institution:</b> {{proposal.variable_name___financing_institution}}</h5>
+      {{/ifCon}}
+      {{#ifCon proposal.payment_method '==' 'Cash'}}
+      <h5><b>Finance Institution:</b> Self</h5>
+      {{/ifCon}}
+      <h5><b>Value used for commission:</b> {{toMoneyDec proposal.commissionable_amount__at_lock_}}</h5>
+      {{!-- Loan Price Per Watt --}}
+      {{#ifCon proposal.payment_method '!=' 'Cash'}}
+      {{#ifCon proposal.variable_name___financing_institution '==' 'Sunpower'}}
+      {{#ifCon proposal.payment_method '==' "Loan"}}
+      <h5><b>SunPower Loan Input:</b> ${{proposal.financed_proposal_price_per_watt}}(Per Watt)</h5>
+      {{/ifCon}}
+      {{/ifCon}}
+      {{/ifCon}}
+      {{!-- Lease Price Per Watt --}}
+      {{#ifCon proposal.payment_method '!=' 'Cash'}}
+      {{#ifCon proposal.variable_name___financing_institution '==' 'Sunpower'}}
+      {{#ifCon proposal.payment_method '==' "Lease"}}
+      <h5><b>SunPower Lease Input:</b> ${{proposal.sunpower_lease_proposal_price_per_watt}}(Per Watt)</h5>
+      {{/ifCon}}
+      {{/ifCon}}
+      {{/ifCon}}
+    </div>
+
+    <div class="col-4">
+      {{#ifCon proposal.payment_method '!=' 'Cash'}}
+      {{#if proposal.sunpower_loan_agreement_number}}
+      <h5><b>ref# (loan/lease):</b> {{proposal.sunpower_loan_agreement_number}}</h5>
+      {{else if proposal.sunpower_lease_agreement_number}}
+      <h5><b>ref# (loan/lease):</b> {{proposal.sunpower_lease_agreement_number}}</h5>
+      {{else}}
+      <h5><b><b>ref# (loan/lease):</b> <span class="text-danger">Missing</span></b></h5>
+      {{/if}}
+      {{/ifCon}}
+      <h5><b>CSD:</b> {{proposal.dateAgreementSigned}}</h5>
+    </div>
+
+    {{!-- Payment Schedule --}}
+    <div class="col-12">
+      <hr>
+      <h5><b>Payment Schedule</b></h5>
+      {{#ifCon proposal.payment_method '==' 'Cash'}}
+      <table class="table table-sm">
+        <tbody>
+          <tr>
+            <td><b>{{toMoneyDec proposal.agreement_price__f_}}</b></td>
+            <td><b>System Price</b></td>
+          </tr>
+          <tr>
+            <td>{{toMoneyDec proposal.cash_deposit__f_}}</td>
+            <td>Deposit</td>
+          </tr>
+          <tr>
+            <td>{{toMoneyDec proposal.commencement_of_work_amount__f_}}</td>
+            <td>Due upon commencement of work</td>
+          </tr>
+          <tr>
+            <td>{{toMoneyDec proposal.commencement_of_panel_installation__f_}}</td>
+            <td>Due upon commencement of panel installation</td>
+          </tr>
+          <tr>
+            <td>{{toMoneyDec proposal.balance_upon_completion_amount__f_}}</td>
+            <td>Balance upon completion of system determined by Building Permit Final</td>
+          </tr>
+        </tbody>
+      </table>
+      {{/ifCon}}
+      {{#ifCon proposal.payment_method '!=' 'Cash'}}
+      <table class="table table-sm">
+        <tbody>
+          {{#if proposal.customer_contribution_portion}}
+          <tr>
+            <td>{{toMoneyDec proposal.agreement_price__f_}}</td>
+            <td>Price includes a {{toMoneyDec proposal.customer_contribution_portion}} customer contribution.</td>
+          </tr>
+          {{/if}}
+          <tr>
+            <td>{{toMoneyDec proposal.agreement_price__f_}}</td>
+            <td>Financed price, payment schedule per financing term.</td>
+          </tr>
+          {{#if proposal.customer_contribution_portion}}
+          <tr>
+            <td>{{toMoneyDec proposal.customer_contribution_portion}}</td>
+            <td>Customer contribution</td>
+          </tr>
+          {{/if}}
+        </tbody>
+      </table>
+      {{/ifCon}}
+    </div>
+
+    {{!-- Promotion Information ******************************************************************** --}}
+    
+      <div class="col-12">
+        <hr>
+      </div>
+
+      {{!-- Promotion Info --}}
+      {{#if proposal.promotions}}
+        {{#if proposal.discountOrRebate}}
+          <div class="col-6">
+            <h5><b>Promotions:</b></h5>
+            <ul>
+              {{#each proposal.promotions}}
+                {{#ifCon payout_type__f_ '!=' 'Referral'}}
+                  <li>
+                    <a href="https://aes.quickbase.com/db/bkr6akjie?a=dr&rid={{record_id_}}&rl=qcc" target="_blank">{{variable_name}}</a>
+                    
+                  </li>
+                  <p><i>Value: {{toMoneyDec promotion_amount__f_}}</i></p>
+                {{/ifCon}}
+              {{/each}}
+            </ul>
+          </div>
+        {{/if}}
+      {{/if}}
+
+      {{!-- Referral Info --}}
+      {{#if proposal.referral}}
+        <div class="col-6">
+          <h5><b>Referrals:</b></h5>
+          <ul>
+            {{#each proposal.promotions}}
+              {{#ifCon payout_type__f_ '==' 'Referral'}}
+                <li>
+                  <a href="https://aes.quickbase.com/db/bkr6akjie?a=dr&rid={{record_id_}}&rl=qcc" target="_blank">{{variable_name}}</a>
+                </li>
+                <p><i>Check payee: {{{name_for_check__first_}}}</i></p>
+                {{#if split_referral}}
+                  <p><i>Check payee: {{{name_for_check__second_}}}</i></p>
+                {{/if}}
+              {{/ifCon}}
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+    </div>
+</div>

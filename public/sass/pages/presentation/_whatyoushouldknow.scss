@@ -1,0 +1,376 @@
+.know {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 100px;
+
+  @include print() {
+    margin-top: 0px;
+  }
+  @media only screen and (max-width: 840px) {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+.know__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media only screen and (max-width: 840px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__logo {
+    & img {
+      max-width: 500px;
+      @media only screen and (max-width: 840px) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__info {
+    font-size: 2rem;
+    & b {
+      font-size: inherit;
+    }
+    & p {
+      padding: 0;
+      margin: -2px 0;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.page__one {
+  display: flex;
+  flex-direction: column;
+
+  &__worker {
+    & img {
+      max-width: 100%;
+      margin-top: 3px;
+      border: 2px solid rgba($color-pres-dark, 0.3);
+      border-radius: 4px;
+    }
+  }
+
+  &__info {
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-start;
+    @media only screen and (max-width: 840px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    &-aes {
+      width: 50%;
+      @media only screen and (max-width: 840px) {
+        width: 100%;
+      }
+      & h1 {
+        font-size: 2.4rem;
+      }
+      & p {
+        font-size: 1.2rem;
+      }
+    }
+    &-agent {
+      margin-top: 1rem;
+      width: 50%;
+      padding-left: 20px;
+      @media only screen and (max-width: 840px) {
+        width: 100%;
+        padding-left: 0px;
+      }
+    }
+  }
+
+  &__certs {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    & img {
+      margin: 3rem 0;
+      max-width: 100%;
+      height: auto;
+      justify-self: center;
+    }
+  }
+}
+
+.page__two {
+  display: flex;
+  flex-direction: column;
+
+  &__house {
+    & img {
+      max-width: 100%;
+    }
+  }
+
+  &__main {
+    margin-top: 2rem;
+    & h1 {
+      font-size: 2.4rem;
+    }
+    & p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+  }
+
+  &__example {
+    margin-top: 2rem;
+    display: flex;
+    text-align: center;
+    @media only screen and (max-width: 840px) {
+      flex-direction: column;
+    }
+    & h2 {
+      font-size: 2rem;
+    }
+
+    & img {
+      max-width: 100%;
+      padding: 0 0.5rem;
+    }
+  }
+
+  &__net {
+    margin-top: 2rem;
+    display: flex;
+    @media only screen and (max-width: 840px) {
+      flex-direction: column;
+    }
+
+    & img {
+      max-width: 100%;
+    }
+    &--text {
+      width: 50%;
+      @media only screen and (max-width: 840px) {
+        width: 100%;
+      }
+
+      & h2 {
+        font-size: 2rem;
+      }
+
+      & ul {
+        margin-left: 2rem;
+        & li {
+          font-size: 1.2rem;
+        }
+      }
+
+      & p {
+        font-size: 1.2rem;
+      }
+    }
+    &--image {
+      width: 50%;
+      @media only screen and (max-width: 840px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.page__three {
+  margin-top: 2rem;
+  &__efficiency {
+    display: flex;
+    @media only screen and (max-width: 840px) {
+      flex-direction: column;
+    }
+
+    &-card-one {
+      width: 50%;
+      margin-right: 10px;
+      @media only screen and (max-width: 840px) {
+        width: 100%;
+        margin: 5px 0px;
+      }
+    }
+    &-card-two {
+      width: 50%;
+      margin-left: 10px;
+      @media only screen and (max-width: 840px) {
+        width: 100%;
+        margin: 5px 0px;
+      }
+    }
+  }
+
+  &__financing {
+    & h1 {
+      font-size: 2.6rem;
+      margin-top: 3.8rem;
+    }
+
+    & h3 {
+      font-size: 1.8rem;
+    }
+
+    & ul {
+      margin-left: 3rem;
+      & li {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  &__cards {
+    margin: 2rem 0;
+    display: flex;
+    @media only screen and (max-width: 840px) {
+      flex-direction: column;
+    }
+
+    &-one {
+      width: 33.3333%;
+      @media only screen and (max-width: 840px) {
+        width: 100%;
+        margin: 5px 0px;
+      }
+    }
+
+    &-two {
+      width: 33.3333%;
+      margin: 0 5px;
+      @media only screen and (max-width: 840px) {
+        width: 100%;
+        margin: 5px 0px;
+      }
+    }
+
+    &-three {
+      width: 33.3333%;
+      @media only screen and (max-width: 840px) {
+        width: 100%;
+        margin: 5px 0px;
+      }
+    }
+  }
+}
+
+.pres__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba($color-pres-primary, 0.5);
+  border-radius: 5px;
+
+  &__header {
+    padding: 8px 0;
+    background-color: $color-pres-primary;
+    color: $color-white-darken;
+    font-size: 2rem;
+    text-align: center;
+    z-index: 10;
+  }
+
+  & img {
+    max-width: 100%;
+    margin-top: -5px;
+  }
+
+  &__body {
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 25px;
+
+    & p {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      text-align: justify;
+    }
+  }
+}
+
+.finance__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba($color-pres-primary, 0.5);
+  border-radius: 5px;
+  overflow: hidden;
+
+  &__header {
+    padding: 8px 0;
+    background-color: $color-pres-primary;
+    color: $color-white-darken;
+    font-size: 2rem;
+    text-align: center;
+    z-index: 10;
+  }
+
+  &__img {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    & img {
+      height: 150px;
+    }
+  }
+
+  &__body {
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 10px;
+
+    & p {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+  }
+
+  &__footer {
+    background-color: rgba($color-pres-light, 0.2);
+    text-align: center;
+    & p {
+      font-size: 1.4rem;
+      padding: 20px 0;
+    }
+  }
+}
+
+.agent__card {
+  border: 1px solid rgba($color-pres-dark, 0.1);
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  & h3 {
+    font-size: 1.8rem;
+  }
+  & h2 {
+    font-size: 2rem;
+    color: #262262;
+  }
+
+  & p {
+    font-size: 1rem;
+  }
+
+  & img {
+    width: 160px;
+    float: right;
+    width: 150px;
+    border-radius: 5px;
+  }
+}

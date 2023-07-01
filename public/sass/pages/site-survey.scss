@@ -1,0 +1,51 @@
+.survey-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.site__survey {
+  display: flex;
+  justify-content: space-around;
+
+  &-left {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &-agent {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+  }
+
+  &-customer {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+
+    & span {
+      color: red;
+    }
+  }
+  &-system {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+  }
+  &-notes {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  &-right {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & img {
+      max-width: 400px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+ 
+ {{!-- Customer Info ************************************************************************** --}}
+ <div class="mb-3">
+  
+  <div class="row ml-0" id="customerInfo">
+    <div class="col-7 border-r">
+      {{!-- Customer Information *************************************************************** --}}
+      <h6><b>Agreement:</b> <a href="https://aes.quickbase.com/db/bkqrxt547?a=dr&rid={{proposal.record_id_}}&combProf=1&combProf=1&combProf=1"
+        target="_blank">{{{parseStrings
+        proposal.project_record___name__f_}}} | Id: {{proposal.record_id_}}</a>
+      </h6>
+      <h6>
+        <b>Project:</b> <a href="https://aes.quickbase.com/db/bkcu36ybd?a=dr&rid={{{proposal.related_project_record}}}" target="_blank">#{{{proposal.related_project_record}}}</a>
+      </h6>
+      {{#if proposal.project_record___project_address}}
+      <h6><b>Project Address:</b> {{{proposal.project_record___project_address}}}</h6>
+      {{else}}
+      <h6><b>Project Address:</b> {{{proposal.project_record___lead___potential_job_address}}}</h6>
+      {{/if}}
+        {{#each proposal.contact}}
+          <h6><b>Contact:</b> {{{parseStrings name__reports___f_}}}
+            {{#if phone_1}}<span><b>{{{phone_1_type}}}:</b> {{{phone_1}}}</span>{{/if}}
+            {{#if phone_2}}<span><b>{{{phone_2_type}}}:</b> {{{phone_2}}}</span>{{/if}}
+            {{#if phone_3}}<span><b>{{{phone_3_type}}}:</b> {{{phone_3}}}</span>{{/if}}
+          </h6>
+        {{/each}}
+    </div>
+    {{!-- Agent Information ******************************************** --}}
+    <div class="col-5">
+      <div class="ml-4">
+        <h6><b>Agent:</b> {{proposal.agent_to_agent_s_contact_record__f____name__reports___f_}}</h6>
+        <h6><b>Phone:</b> {{proposal.agent_to_agent_s_contact_record__f____phone_3}}</h6>
+        <h6><b>Email:</b> {{proposal.record_owner}}</h6>
+      </div>
+    </div>
+  </div>
+</div>

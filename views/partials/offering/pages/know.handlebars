@@ -1,0 +1,353 @@
+<div class="page active leading-relaxed text-gray-800" id="page_know">
+  {{! Cover Page }}
+  <div class="container flex-between mx-auto pb-always print:pt-0 hidden print:block" id="page_one">
+    <div class="relative h-full">
+      <img class="w-full" src="/offering/cover.png" alt="Cover Image" id="cover-img" />
+      <div class="flex px-4">
+        <div class="w-7/12">
+          <h2 class="text-4xl font-bold print:text-2xl">
+            {{{customerName}}}
+          </h2>
+          <p class="text-2xl">
+            {{{customerAddress}}}
+          </p>
+        </div>
+        <div class="w-5/12 flex flex-col items-end">
+          <ul class="list-none text-right">
+            <li>
+              Agent:
+              {{{agent._fid_58}}}
+            </li>
+            <li>
+              Office:
+              (530) 345 - 6980
+            </li>
+            <li>
+              Direct:
+              {{{agent._fid_31}}}
+            </li>
+            <li>
+              {{{agent._fid_9}}}
+            </li>
+            <li class="text-purple-900 text-sm">
+              Prices valid until date: {{{formatDate pricing.0._fid_250}}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{! Page One }}
+  <div class="container flex-between mx-auto pt-10 pb-always print:pt-0" id="page_one">
+    <div class="px-20 text-justify print:mt-20 lg:px-0">
+      <h1 class="text-5xl font-semibold mb-6 print:text-4xl print:mb-4">
+        Proud to be part of the North State since 2003.
+      </h1>
+      <p class="mb-6 print:mb-4">
+        {{{content._fid_9}}}
+      </p>
+      <p class="mb-6 print:mb-4">
+        {{{content._fid_10}}}
+      </p>
+      <div class="flex items-start mb-8 print:mb-6 print:items-center">
+        <p class="w-7/12 mt-2">
+          {{{content._fid_11}}}
+        </p>
+        <div class="w-5/12">
+          <img class="w-full ml-4" src="/offering/aeslogo.png" alt="AES Logo" />
+        </div>
+      </div>
+    </div>
+    <div class="flex h-48 print:h-40">
+      <img class="w-4/12" src="/offering/installer.jpg" alt="Solar Installer" />
+      <img class="w-2/12" src="/offering/powerwall.png" alt="Powerwall" />
+      <img class="w-3/12" src="/offering/terminals.png" alt="Powerwall" />
+      <img class="w-3/12" src="/offering/generack.png" alt="Powerwall" />
+    </div>
+  </div>
+  {{! Page Two }}
+  <div class="container mx-auto pb-always pt-20 print:pt-0 print:px-4" id="page_two">
+    <div class="flex justify-between print:h-full print:pt-2">
+      {{! Agent }}
+      <div class="w-5/12 flex flex-col justify-between">
+        <div>
+          <h2 class="text-4xl font-semibold mb-3">
+            We Partner With The Best
+          </h2>
+          <h3 class="text-2xl print:text-xl font-semibold mb-1">
+            {{{agent._fid_58}}}
+          </h3>
+          <h3 class="text-2xl print:text-xl text-purple-900 font-thin mb-1">
+            Energy Consultant
+          </h3>
+          <h3 class="text-l font-thin mb-3 italic">
+            {{! With AES since Need! }}
+          </h3>
+          <p class="text-sm mb-5 text-justify print:text-xs print:mb-3">
+            {{{agent._fid_115}}}
+          </p>
+        </div>
+        <img src="{{{agent._fid_111}}}" alt="Energy Consultant" class="w-9/12 print:w-7/12 mx-auto" />
+      </div>
+      {{! Photos }}
+      <div class="w-7/12 pl-2 print:pt-5">
+        <img class="w-full" src="/offering/logo_group.png" alt="Sunpower Elite Dealer" />
+      </div>
+    </div>
+  </div>
+  {{! Page Three }}
+  <div class="container mx-auto mt-20 pb-always print:mt-0 text-justify print:px-10" id="page_three">
+    <h1 class="text-5xl font-semibold mb-6 print:text-4xl print:mb-4">
+      Take control, be independent, and save money.
+    </h1>
+    <div class="flex">
+      <div class="w-1/2">
+        <p class="mb-6">
+          {{{content._fid_12}}}
+        </p>
+        <p class="mb-10">
+          {{{content._fid_13}}}
+        </p>
+        <div class="flex items-end">
+          <div class="w-1/2">
+            <img src="/offering/powerwall1.png" alt="Powerwall" />
+          </div>
+          <div class="w-1/2">
+            <p class="mb-6">
+              {{{content._fid_14}}}
+            </p>
+            <p>
+              {{{content._fid_15}}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="w-1/2 flex flex-col items-end">
+        <img class="w-8/12 print:w-10/12 print:h-auto" src="/offering/equinox_system.jpg" alt="Solar Monitoring" />
+        <div class="flex items-end justify-end mt-10">
+          {{! Generack }}
+          <img class="w-4/12 mr-16" src="/offering/generac1.png" alt="Generac" />
+          <p class="w-4/12 print:w-5/12 text-left">
+            A propane or natural gas powered generator is the third component of the energy
+            independence trifecta or can provide backup energy for your home when solar + storage is
+            not an option.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{! Page Four }}
+  <div class="container mx-auto mt-20 pb-always print:mt-8 text-justify relative print:px-10" id="page_four"
+    style="height: 900px;">
+    {{! Header }}
+    <div class="flex justify-between relative z-20">
+      <div class="w-7/12 print:w-8/12">
+        <h1 class="text-3xl font-semibold print:text-2xl">
+          Solar energy works by capturing the sun’s energy and
+          turning it into electricity for your home.
+        </h1>
+        <p class="mt-6 mb-4 print:text-sm print:mt-3 print:mb-2">
+          {{{content._fid_16}}}
+        </p>
+        <p>
+          {{{content._fid_17}}}
+        </p>
+      </div>
+      <div class="w-3/12">
+        <img class="w-full" src="/offering/aeslogo.png" alt="AES Logo" />
+      </div>
+    </div>
+    <div class="w-full absolute lg:static" style="top: 145px" id="house-electric">
+      <img class="w-full" src="/offering/how_solar_works.png" />
+      <img class="nem_doesnt_cover" src="/offering/nem_doesnt_cover.png">
+    </div>
+    <div class="flex justify-between absolute lg:static" style="bottom: 0px;" id="nem-text">
+      <img src="/offering/blue_icon.png" alt="" style="max-width: 100px;" />
+      <div class="flex-1 ml-5">
+        <p class="text-sm">
+          {{{content._fid_43}}}
+        </p>
+        <p class="text-sm mt-2">
+          {{{content._fid_44}}}
+        </p>
+      </div>
+    </div>
+  </div>
+  {{! Page Five }}
+  <div class="container mx-auto mt-20 pb-always print:mt-0 print:px-10 lg:mt-40" id="page_five">
+    <div class="relative z-20" id="tou-relative" style="height: 825px;">
+      {{! Header }}
+      <div class="flex justify-between z-40 print:mt-5">
+        <div class="w-7/12 print:w-8/12">
+          <h1 class="text-5xl font-semibold print:text-3xl">
+            Understanding Time of Use (TOU)
+          </h1>
+          <p class="mt-6 mb-4 print:text-sm print:mt-3 print:mb-2">
+            {{{content._fid_45}}}
+          </p>
+        </div>
+        <div class="w-3/12">
+          <img class="w-full" src="/offering/aeslogo.png" alt="AES Logo" />
+        </div>
+      </div>
+      {{! Graph }}
+      <img class="w-full h-auto mx-auto absolute" id="tou-graph" src="/offering/tou.png" alt="Graph"
+        style="top: 15%; z-index: -1;" />
+    </div>
+    <p class="w-full py-4 px-6 bg-purple-900 text-white rounded shadow print:-mt-20 print:z-20">
+      When your home has its own power generator, like solar, and its own energy storage like
+      batteries, your relationship with your utility company
+      changes in your favor. With solar+battery you can spin this to your advantage by generating
+      and storing power when it is lower cost, and then
+      using your solar+storage when rates are at their peak.
+    </p>
+  </div>
+  {{! Page Six }}
+  <div class="container mx-auto mt-20 pb-always print:mt-0 print:px-10 relative z-20" id="page_six">
+    <div class="flex">
+      <div class="w-8/12 print:w-8/12">
+        <h1 class="text-5xl font-semibold print:text-3xl mt-0">
+          Why Efficiency Matters
+        </h1>
+        <p class="mt-6 mb-4 print:text-sm print:mt-3 print:mb-2">
+          Maximize your roof space with high-efficiency solar panels.
+        </p>
+        <img src="/offering/comparison.jpg" alt="Solar efficiency" />
+        <h1 class="text-4xl font-semibold print:text-3xl mt-16">
+          {{{content._fid_46}}}
+        </h1>
+        <p class="mt-5">
+          {{{content._fid_47}}}
+        </p>
+      </div>
+      <div class="w-4/12 flex flex-col items-end pl-10">
+        <img class="w-9/12" src="/offering/aeslogo.png" alt="AES Logo" />
+        <div class="">
+          <p class="text-justify print:text-sm mt-16 print:mt-10">
+            Higher solar panel efficiency and lower degradation mean you can exponentially maximize roof space and the
+            amount of
+            power you can generate. High efficiency solar panels are made with monocrystalline silicon and have better
+            power and
+            product warranties than conventional solar so you get the best long term value from your investment!
+          </p>
+          <div class="mt-16 print:mt-0 print:absolute print:bottom-0 print:right-0 print:mt-0" id="hand-phone">
+            <h3 class="text-lg font-bold">
+              How Do You Know It's Working?
+            </h3>
+            <p>
+              Easily view your solar system’s energy production from your home computer, tablet or
+              mobile device.
+            </p>
+            <img class="w-full" src="/offering/hand_icon.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{! Pages Seven }}
+  <div class="container mx-auto mt-20 pb-always print:mt-0 print:px-10" id="page_six">
+    {{! Header }}
+    <div class="flex justify-between">
+      <div class="w-8/12 print:w-8/12">
+        <h1 class="text-5xl font-semibold print:text-3xl mt-0">
+          Maximize Your Investment
+        </h1>
+        <p class="mt-4 print:text-sm print:mt-3">
+          AES offers multiple financing options to begin lowering your monthly energy costs.
+        </p>
+      </div>
+      <div class="w-3/12">
+        <img class="w-full" src="/offering/aeslogo.png" alt="AES Logo" />
+      </div>
+    </div>
+    {{! Main }}
+    <div class="flex justify-between items-center mt-10">
+      {{! Card }}
+      <div class="w-3/12 flex flex-col mx-10">
+        <div class="text-center">
+          <img class="w-auto h-48 pt-4 pl-4 pr-4 print:pt-10" src="/offering/cash.png" alt="Cash Image" />
+          <h3 class="text-2xl font-bold mt-6 print:text-xl">
+            Cash or Personal Loan
+          </h3>
+          <p class="font-bold text-green-800 mb-6">
+            Get started: $1,000 Deposit
+          </p>
+        </div>
+        <p class="text-justify text-sm">
+          When you buy or self-finance, you
+          get to take advantage of the tax
+          credits associated with owning
+          the system. And since you own
+          your system, you gain the most
+          value if you sell your home.
+        </p>
+      </div>
+      {{! Card }}
+      <div class="w-3/12 flex flex-col mx-10">
+        <div class="text-center">
+          <img class="h-48 w-full" src="/offering/pig.png" alt="Cash Image" />
+          <h3 class="text-2xl font-bold mt-6 print:text-xl">
+            AES Coordinated Loan
+          </h3>
+          <p class="font-bold text-green-800 mb-6">
+            Get started: As low as $0 down
+          </p>
+        </div>
+        <p class="text-justify text-sm">
+          Like paying cash, you benefit from
+          eligible solar tax credits and/or state
+          and local incentives with little-to-no
+          money down. For many customers,
+          the combination of the loan payment
+          and the remaining power bill is less
+          than their previous electric bill.
+        </p>
+      </div>
+      {{! Card }}
+      <div class="w-3/12 flex flex-col mx-10">
+        <div class="text-center">
+          <img class="h-48 w-full" src="/offering/lease.png" alt="Cash Image" />
+          <h3 class="text-2xl font-bold mt-6 print:text-xl">
+            Lease
+          </h3>
+          <p class="font-bold text-green-800 mb-6">
+            Get started: As low as $0 down
+          </p>
+        </div>
+        <p class="text-justify text-sm">
+          Leasing offers a way to benefit from
+          going solar without the responsibility
+          of owning the equipment or the tax
+          credit. In most cases this can be
+          obtained with no money down and
+          instant savings.
+        </p>
+      </div>
+    </div>
+    {{! footer }}
+    <div class="flex mt-10">
+      <div class="w-7/12">
+        <h4 class="font-bold text-xl mb-4 print:text-lg">
+          Current incentives when you choose solar or battery storage:
+        </h4>
+        <div class="flex">
+          <img style="max-width: 100px;" src="/offering/check.png" alt="Check mark" />
+          <ul class="flex flex-col justify-between ml-4">
+            <li>
+              • 26% Federal tax credit
+            </li>
+            <li>
+              • Property tax exempt
+            </li>
+            <li>
+              • Self-Generating Incentive Program (SGIP) rebates
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="w-5/12 pl-4">
+        <img src="/offering/value.png" alt="" />
+      </div>
+    </div>
+  </div>
+</div>

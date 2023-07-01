@@ -1,0 +1,55 @@
+<style>
+  .container {
+    text-align: justify;
+    font-family: Calibri !important; 
+    font-size: 14pt;
+  }
+  .page__one {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 18pt;
+  }
+</style>
+
+<div class="solar__contract container">
+  {{!-- Header --}}
+  <div class="row">
+    <div class="col-md-4 col-sm-12 ">
+      <img src="{{{_fid_31}}}" class="img-fluid">
+    </div>
+    <div class="col-md-8 col-sm-12 align-self-end">
+    </div>
+    <div class="col-12">
+      <hr style="border: .7px solid black;">
+    </div>
+  </div>
+  {{!-- Content --}}
+  {{{HTML _fid_7}}}
+  {{{HTML _fid_8}}}
+  {{{HTML _fid_9}}}
+  {{{HTML _fid_10}}}
+  {{{HTML _fid_11}}}
+  {{{HTML _fid_12}}}
+  {{{HTML _fid_13}}}
+</div>
+
+<script>
+  const selected_price = "{{{selected_price}}}"
+  const hide_contribution = "{{{hide_contribution}}}"
+    
+  if(selected_price === "Cash"){
+    $("#loanPrice").hide()
+  } else if(selected_price === "Loan") {
+    $("#cashPrice").hide()
+  }else {
+    $("#cashPrice").hide()
+    $("#loanPrice").hide()
+  }
+
+  if(hide_contribution){
+    $(".hideContribution").hide()
+    $("#priceWithCon").hide()
+    $("#customerCon").hide()
+  }
+</script>
+

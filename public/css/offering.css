@@ -1,0 +1,107 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+@media print {
+  .compare-table {
+    padding-right: 5px; } }
+
+.compare-table td {
+  width: 150px; }
+
+.compare-table th {
+  width: 150px; }
+
+.warranty__table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 5px;
+  text-align: left; }
+
+.warranty__table .heading {
+  text-align: center; }
+  .warranty__table .heading th:not(:first-child) {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    padding: 10px; }
+
+.warranty__table td:not(:first-child) {
+  text-align: center; }
+
+.warranty__table svg {
+  width: 15px;
+  margin: 0 auto; }
+
+.warranty__table th,
+.warranty__table td {
+  font-size: 14px; }
+
+.warranty__table .title {
+  padding-top: 20px; }
+
+#cash,
+#finance {
+  display: none; }
+
+@media print {
+  #warranty,
+  #cash,
+  #finance {
+    display: block;
+    transform: scale(.93) !important; } }
+
+.nem_doesnt_cover {
+  max-width: 300px;
+  position: absolute;
+  bottom: 10%;
+  right: 0%; }
+  @media print {
+    .nem_doesnt_cover {
+      max-width: 200px;
+      bottom: 0%; } }
+
+@media print {
+  nav {
+    display: none; }
+  .container {
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+  .container.flex-end {
+    justify-content: flex-end; }
+  .container.flex-between {
+    justify-content: space-between; }
+  .pb-always {
+    page-break-after: always !important; }
+  .page {
+    display: block;
+    margin: 0; }
+  #cover-img {
+    max-height: 80vh !important; }
+  #page_four {
+    height: auto !important; }
+  #house-electric {
+    top: 115px !important;
+    max-width: 90% !important;
+    left: 5% !important; }
+  #nem-text {
+    max-width: 90% !important;
+    bottom: -560px !important;
+    left: 5% !important; }
+  #tou-relative {
+    height: 90% !important; }
+  #tou-graph {
+    width: 90% !important;
+    left: 5%;
+    top: 18% !important; }
+  #compare {
+    display: none; }
+  #hand-phone {
+    max-width: 300px; }
+  @page {
+    size: letter landscape;
+    margin: 0; } }

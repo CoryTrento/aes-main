@@ -1,0 +1,76 @@
+{{! Offering Header }}
+<div class="flex justify-between items-start print:pr-2 print:pl-5">
+  <div>
+    <h2 class="text-xl font-semibold print:text-xl">
+      Compare Your Energy Efficient Solutions
+      {{{_fid_6}}}
+    </h2>
+    <p class="text-sm">
+      {{{customerName}}}
+    </p>
+    <p class="text-sm">
+      {{{customerAddress}}}
+    </p>
+  </div>
+  <div
+    class="flex items-center border border-black py-2 px-4 rounded-lg print:py-1 print:px-4 print:leading-tight"
+  >
+    <p class="print:text-med">
+      Annual Utility Usage
+      <br />
+      (Without Solar)
+    </p>
+    <h2 class="text-2xl font-bold pl-4 print:text-xl">
+      {{{toNumber pricing.0._fid_335}}}
+      kWh
+    </h2>
+  </div>
+  <img
+    class="w-56"
+    src="https://aes.quickbase.com/up/bkdfitsjr/a/r23606/e6/v0?aeslogo.png"
+    alt="AES Logo"
+  />
+</div>
+{{! Current Usage }}
+<div class="flex justify-end text-center mt-5 print:leading-tight">
+  <div class="flex-1"></div>
+  <div class="flex-1">
+    <p>
+      Your current avg.
+      <br />
+      electric bill:
+    </p>
+    <h2 class="text-2xl font-bold print:text-xl">
+      {{{toMoneyDec pricing.0._fid_369}}}
+      /mo
+    </h2>
+  </div>
+  <div class="flex-1">
+    <p>
+      Your current avg.
+      <br />
+      electric bill:
+    </p>
+    <h2 class="text-2xl font-bold print:text-xl">
+      {{{toMoneyDec pricing.0._fid_334}}}
+      /yr
+    </h2>
+  </div>
+  <div class="flex-1">
+    <p>
+      How much you’ll pay for
+      <br />
+      electricty over 25 years
+      <sup>
+        1
+      </sup>
+      :
+    </p>
+    <h2 class="text-2xl font-bold print:text-xl">
+      {{{toMoneyDec pricing.0._fid_368}}}
+    </h2>
+  </div>
+  <div class="flex-1 flex justify-end">
+    <img class="w-10/12" src="/img-content/current.png" alt="Current Usage" />
+  </div>
+</div>

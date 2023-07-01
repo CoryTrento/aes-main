@@ -1,0 +1,106 @@
+<div class="container finishedArray pb-always">
+
+  {{!-- Proposal Header --}}
+  <div class="d-none d-md-block d-lg-block d-xl-block">
+    <h1 class="text-center proposal__title">{{{proposal.proposal_title}}}</h1>
+    <hr class="hrHeader">
+  </div>
+  <div class="d-lg-none d-xl-none d-md-none mt-1">
+    <h1 class="text-center">{{{proposal.proposal_title}}}</h1>
+  </div>
+
+  {{!-- System Info **************************************** System Info --}}
+  <div id="systemInfo" class="mt-4 mb-3 array__holder">
+    <div class="row text-left justify-content-center">
+      <div class="col-md-4 col-sm-6">
+        <h5>Number Of Modules: {{proposal.total_panel_quantity__f_}}</h5>
+        <h5>Manufacturer: {{manufacturer}}</h5>
+        <h5>Module Type: {{moduleType}}</h5>
+        <a href="{{{specSheet}}}" class="btn btn-sm btn-aes d-print-none" target="_blank">System Spec Sheet</a>
+        
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <h5>Total DC kW: {{proposal.system_dc_kw_array_total}} (kW)</h5>
+        <h5>Annual Usage:
+          <span class="annualUsage">{{toNumber proposal.annual_kwh_pg_e_customer__f_}}</span> (kWh/y)</h5>
+        <h5>Annual Production<sup>1</sup>: 
+          <span class="annualProduction">{{toNumber proposal.annual_production__f_}}</span> (kWh/y)</h5>
+          
+      </div>
+      <div class="col-md-3 col-sm-12 text-center">
+        {{> proposal/_donutChart}}
+        <h5 class="text-success">Efficiency: {{efficiency}}</h5>
+      </div>
+    </div>
+  </div>
+
+
+  
+  {{!-- Use Of Partials --}}
+  <div class="row">
+
+    <div class="col-12">
+      {{> proposal/_bestForYou}}
+    </div>
+
+
+    {{#if proposal.presentation_image}}
+      <div class="col-md-6 col-sm-12 text-center">
+        <img src="{{{proposal.presentation_link__f_}}}" class="img-fluid mb-3" style="max-height: 400px;">
+      </div>
+      <div class="col-md-6 col-sm-12">
+        {{> proposal/_warrantyInfo}}
+        {{#if proposal.has_dicount_referral_or_rebate__f_}}
+          {{> proposal/_specialOffers}} 
+        {{/if}}
+      </div>
+    {{else}} 
+      {{#if proposal.img_link_for_presentation__f_}}
+      <div class="col-md-6 col-sm-12 text-center">
+        <img src="{{{proposal.img_link_for_presentation__f_}}}" class="img-fluid mb-3" style="max-height: 400px;">
+      </div>
+      <div class="col-md-6 col-sm-12">
+        {{> proposal/_warrantyInfo}}
+        {{#if proposal.has_dicount_referral_or_rebate__f_}}
+          {{> proposal/_specialOffers}} 
+        {{/if}}
+      </div>
+    {{else}}
+      <div class="col-md-12">
+        {{> proposal/_warrantyInfoNoImg}}
+        {{#if proposal.has_dicount_referral_or_rebate__f_}}
+          {{> proposal/_specialOffers}} 
+        {{/if}}   
+      </div>
+    {{/if}}
+    {{/if}}
+    
+    {{!-- {{#if proposal.img_link_for_presentation__f_}}
+      <div class="col-md-6 col-sm-12 text-center">
+        <img src="{{{proposal.img_link_for_presentation__f_}}}" class="img-fluid mb-3" style="max-height: 400px;">
+      </div>
+      <div class="col-md-6 col-sm-12">
+          {{> proposal/_warrantyInfo}}
+        {{#if proposal.has_dicount_referral_or_rebate__f_}}
+          {{> proposal/_specialOffers}} 
+        {{/if}}
+      </div>
+    {{else}}
+      <div class="col-md-12">
+          {{> proposal/_warrantyInfoNoImg}}
+        {{#if proposal.has_dicount_referral_or_rebate__f_}}
+          {{> proposal/_specialOffers}} 
+        {{/if}}   
+      </div>
+    {{/if}} --}}
+    
+    <div class="col-12 mt-4">
+        <p class="mb-2" style="font-size: 12px;">{{disclaimerContent.disclaimerOne}}</p>
+        <p class="mb-2" style="font-size: 12px;">{{disclaimerContent.disclaimerTwo}}</p>
+        <p class="mb-2" style="font-size: 12px;">{{disclaimerContent.disclaimerThree}}</p>
+        <p class="mb-2" style="font-size: 12px;">{{disclaimerContent.disclaimerFour}}</p>
+        <p class="mb-2" style="font-size: 12px;">{{disclaimerContent.disclaimerFive}}</p>
+    </div>
+    
+  </div>
+</div>

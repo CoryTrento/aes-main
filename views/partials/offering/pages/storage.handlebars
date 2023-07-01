@@ -1,0 +1,75 @@
+<div class="page leading-relaxed text-gray-800" id="page_{{{_fid_3}}}">
+  <div class="container mx-auto pb-always pb-always print:px-10">
+    {{! Offering Header }}
+    <div class="flex justify-between items-start">
+      <div>
+        <h2 class="text-xl font-semibold print:text-xl">
+          Energy Saving Solution:
+          {{{_fid_817}}}
+        </h2>
+        <p>
+          {{{_fid_312}}}
+        </p>
+        <p>
+          {{{_fid_251}}}
+        </p>
+        <p class="font-semibold italic">
+          Current solar production: {{{_fid_895}}}
+        </p>
+      </div>
+      <img class="w-56" src="https://aes.quickbase.com/up/bkdfitsjr/a/r23606/e6/v0?aeslogo.png"
+        alt="AES Logo" />
+    </div>
+    <div class="flex -mt-2">
+      <div class="flex-1">
+        <p class="font-bold mt-5">
+          Electrical Additions
+        </p>
+        <ul class="list-none mb-5">
+          <li>
+            {{{_fid_963}}}
+          </li>
+        </ul>
+        {{! Image and graph }}
+        <img class="w-full" src="{{{_fid_373}}}" alt="" />
+      </div>
+      {{! Right Side }}
+      <div class="flex-1 flex flex-col ml-10">
+        <div class="flex items-center">
+          <h2 class="text-5xl">
+            {{{storage._fid_197}}}
+          </h2>
+          <p class="text-sm ml-2 leading-tight">
+            Continuous power
+            <br />
+            <span class="ml-4">
+              during an outage
+            </span>
+          </p>
+        </div>
+        <a href="{{{storage._fid_272}}}">
+          <img class="mt-5 print:mt-5 mr-5" src="{{{storage._fid_198}}}" alt="Product Image"
+            style="max-width: 340px;" />
+        </a>
+        <div class="flex">
+          <div>
+            <p class="font-bold">
+              Equipment
+            </p>
+            <ul class="text-sm">
+              <li>
+                {{{storage._fid_155}}}
+              </li>
+              <li>
+                {{{storage._fid_47}}}
+              </li>
+            </ul>
+          </div>
+          <div class="ml-10">
+            {{> offering/layout/offering/storage-backup}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

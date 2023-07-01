@@ -1,0 +1,157 @@
+<div class="container compareProposals pb-always">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center card-header mt-4 table__heading" id="ProposalComparison">Proposal Comparison</h1>
+      <table class="table table-sm table-bordered">
+      <tbody>
+        <tr>
+          <th>Title</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}"><a href="#" class="compareAnchor" data-id="{{title}}">{{{title}}}</a></td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Financing</th>
+          {{#each compareArray}}
+          {{#if priceInfo.financing_institution}}
+            <td class="compareList {{priceInfo.name}}{{title}}">{{priceInfo.financing_institution}}</td>
+          {{else}}
+            <td class="compareList {{priceInfo.name}}{{title}}">{{priceInfo.name}}</td>
+          {{/if}}
+          {{/each}}
+        </tr>
+        <tr>
+          <th># Modules</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{quantity}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>DC Kw</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{dcKw}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Annual kWhr</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}} annualUsage">{{toNumber annualKwh}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>% Offset</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{percentOffset}}%</td>
+          {{/each}}
+        </tr>
+        {{!-- IF Discount --}}
+        <tr class="hideDiscountIfNoPromo">
+          <th>Price Before Discounts</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{toMoney priceBeforeDiscounts}}</td>
+          {{/each}}   
+        </tr>
+        <tr class="hideDiscountIfNoPromo">
+          <th>Total Discounts</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}} discountAmount">{{toMoney discountAmount}}</td>
+          {{/each}}   
+        </tr>
+        <tr>
+          <th>Final Price</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{toMoney priceInfo.gross}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Tax Credit Value</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{toMoney priceInfo.incentive}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Net Price</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{toMoney priceInfo.net}}</td>
+          {{/each}}
+        </tr>
+        <tr class="hidePromoIfNoPromo">
+          <th>Promotions</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}} promoAmount">{{toMoney totalPromoWithoutReferral}}</td>
+          {{/each}}   
+        </tr>
+        
+        <tr class="hideRebateIfNoPromo">
+          <th>Total Rebates</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}} rebateAmount">{{toMoney rebateAmount}}</td>
+          {{/each}}   
+        </tr>
+        <tr class="hideReferralIfNoPromo">
+          <th>Total Referrals</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}} referralAmount">{{toMoney referralAmount}}</td>
+          {{/each}}   
+        </tr>
+        
+        <tr>
+          <th>Monthly Payment</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{toMoney priceInfo.payment}}</td>
+          {{/each}}
+        </tr>
+
+        
+        <tr class="hideBalloonIfNoBalloon">
+          <th>Tax Credit Loan Repayment</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}} balloonAmount">{{toMoney balloon}}</td>
+          {{/each}}
+        </tr>
+       
+        <tr>
+          <th>25 Year Savings</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{toMoney priceInfo.yearSaving25}}</td>
+          {{/each}}
+        </tr>
+        <tr class="warranty__heading">
+          <th class="bg-lightBlue pt-2 pb-2 ">Warranty</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}} bg-lightBlue"></td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Module</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{{parseTags warranty.moduleWarrantyText "<h5>"}}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Inverter</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{{parseTags warranty.inverterWarrantyText "<h5>"}}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th>Monitoring</th>
+          {{#each compareArray}}
+          <td class="compareList {{priceInfo.name}}{{title}}">{{{parseTags warranty.monitoringWarrantyText "<h5>"}}}</td>
+          {{/each}}
+        </tr>
+        <tr class="d-print-none">
+          <th></th>
+          {{#each compareArray}}
+           <td class="compareList {{priceInfo.name}}{{title}}">
+              <button class="btn btn-outline-danger btn-block d-print-none removeBtn" data-id="{{priceInfo.name}}{{title}}">Remove</button>
+           </td>
+          {{/each}}
+        </tr>
+      </tbody>
+    </table>
+    
+    </div>
+    
+  </div>
+</div>

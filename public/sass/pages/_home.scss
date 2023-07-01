@@ -1,0 +1,69 @@
+.agent__info {
+  box-shadow: 0px 5px 20px rgba(1, 1, 1, 0.2);
+}
+
+.financial__links {
+  margin-top: 40px;
+
+  @media print {
+    margin-top: 10px;
+  }
+
+  &__ul {
+    @media print {
+      display: none;
+    }
+  }
+
+  &__li {
+    margin-top: 15px;
+    max-width: 300px;
+    a {
+      text-decoration: none;
+      color: rgb(59, 111, 189);
+    }
+
+    span {
+      text-decoration: none;
+      text-transform: capitalize;
+      float: right;
+
+      background-color: rgba(121, 120, 120, 0.1);
+      color: darken(#fff, 70%);
+      padding: 0px 12px;
+      border-radius: 1px;
+      box-shadow: 0px 1px 2px rgba(121, 120, 120, 0.4);
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: rgba(121, 120, 120, 0.7);
+        color: darken(#fff, 5%);
+        box-shadow: 0px 1px 2px rgba(121, 120, 120, 0.8);
+      }
+
+      @media only screen and (max-width: 350px) {
+        display: block;
+        float: none;
+        width: 140px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__href {
+    display: none;
+
+    @media print {
+      display: block;
+    }
+  }
+}
+
+#numberOneSolar {
+  font-size: 90px;
+  text-shadow: 1px 1px 5px #254f8e, 1px 1px 2px rgb(127, 189, 248);
+  text-align: center;
+  @media (max-width: 700px) {
+    font-size: 60px;
+  }
+}

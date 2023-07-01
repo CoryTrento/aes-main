@@ -1,0 +1,109 @@
+
+{{!-- System Information *************************************************************************************** --}}
+
+<div class="pb-3" >
+  <div class="row ml-0 mt-3" id="systemInfo">
+    <div class="col-4">
+      <h6><b>Job Type:</b> {{proposal.system_type__f_}} / {{proposal.variable_name___system_string_type}}</h6>
+      <h6><b>Panel Quantity:</b> {{proposal.total_panel_quantity}}</h6>
+      <h6><b>Annual Production:</b> {{{toNumber proposal.annual_production__f_}}}kWh</h6>
+      <h6><b># Of Arrays:</b> {{proposal.arrays.length}}</h6>
+    </div>
+    <div class="col-4">
+      <h6><b>Module Type:</b> {{proposal.moduleType}}</h6>
+      <h6><b>Racking Qty:</b> {{{proposal.total_racking_required__ft_}}}ft</h6>
+      <h6><b>Electrical Hours:</b> {{{proposal.total_budgeted_electrician_hours}}}</h6>
+    </div>
+    <div class="col-4">
+      <h6><b>System Size:</b> {{proposal.system_dc_kw_array_total}}kW</h6>
+      <h6><b># Of Penetrations:</b> {{proposal.total_system_penetrations_}}</h6>
+      <h6><b>Non-Electrical Hours:</b> {{{proposal.total_budgeted_install_hours}}}</h6>
+      {{#if proposal.inverter}}
+      <h6><b>Inverter:</b> {{proposal.inverter}}</h6>
+      {{/if}}
+    </div>
+    <div class="col-12">
+      <hr>
+    </div>
+    {{!-- Array Info
+    ************************************************************************************************* --}}
+    <div class="col-12">
+      {{#each proposal.arrays}}
+      <div class="row mt-1">
+        <div class="col-12">
+          {{#if array_title}}
+          <h6><b>Array:</b> <a href="https://aes.quickbase.com/db/bkq96b4w5?a=dr&rid={{record_id_}}&rl=cese" target="_blank">{{{array_title}}}</a></h6>   
+          {{else}}
+          <h6><b>Array:</b> <a href="https://aes.quickbase.com/db/bkq96b4w5?a=dr&rid={{record_id_}}&rl=cese" target="_blank">{{{quantity}}}X{{{roof_material}}}</a></h6>
+          {{/if}}
+                
+        </div>
+
+        <div class="col-4">
+          <ul>
+            <li><b>Mount Style:</b> {{mount_style}}</li>
+            <li><b>Quantity:</b> {{quantity}}</li>
+            <li><b>Racking ft:</b> {{{racking_required__ft___f_}}}</li>
+            <li><b>Annual Production:</b> {{toNumber annual_production__f_}}kWh</li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <ul>
+            <li><b>Roof Type:</b> {{roof_material}}</li>
+            <li><b>Tilt:</b> {{array_tilt2}}</li>
+            <li><b>Azimuth:</b> {{azimuth}}</li> 
+          </ul>
+        </div>
+        <div class="col-4">
+          <ul>
+            <li><b># Of Penetrations:</b> {{{total_array_penetrations__f_}}}</li>
+            <li><b>Electrical hrs:</b> {{{electrical_labor_time}}}</li>
+            <li><b>Non-Electrical hrs:</b> {{{total_installation_labor_time}}}</li>
+          </ul>
+        </div>
+      </div>
+        
+      {{/each}}
+
+    </div>
+
+    <div class="col-12">
+      {{!-- Cost Adders *********************************************************************** --}}
+      {{#if proposal.costAdders}}
+      <div class="" id="adderInfo">
+        <hr>
+        <div class="row">
+         
+          <div class="col-12">
+            <h6><b>Additional Work:</b></h6>
+          </div>
+           {{#each proposal.costAdders}}
+          <div class="col-4">
+            <ul>
+              {{#if title_of_work}}
+              <li><b>Type:</b> <a href="https://aes.quickbase.com/db/bkry2fqtb?a=dr&rid={{record_id_}}&rl=bras" target="_blank"> {{title_of_work}} </a></li>
+              <li><b>Materials Cost:</b> {{{toMoneyDec cost_of_materials__f___including_pr_}}}</li>
+              {{else}}
+              <li><b>Type:</b> <a href="https://aes.quickbase.com/db/bkry2fqtb?a=dr&rid={{record_id_}}&rl=bras" target="_blank"> {{parseStrings variable_name___adder_type_picker}} </a></li>
+              <li><b>Materials Cost:</b> {{{toMoneyDec cost_of_materials__f___including_pr_}}}</li>
+              {{/if}}
+            </ul>
+          </div>
+          <div class="col-4">
+            <ul>
+              <li><b>Electrical hrs:</b> {{total_electrical_labor_hours__f___including_pr_}}</li>
+            </ul>
+          </div>
+          <div class="col-4">
+            <ul>
+              <li><b>Non-Electrical hrs:</b> {{total_non_electrical_labor_hours__f___including_pr_}}</li>
+            </ul>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+    </div>
+
+  </div>
+</div>

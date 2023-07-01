@@ -1,0 +1,27 @@
+<div class="mb-3">
+  <div class="row ml-0 mt-3" id="alertInfo">
+  {{#each proposal.alerts}}
+      <div class="col-6">
+        <h6><b>ID:</b> <a href="https://aes.quickbase.com/db/bkhksefab?a=dr&rid={{{record_id_}}}" target="_blank">{{{record_id_}}}</a></h6>
+      </div>
+      <div class="col-6">
+        <h6><b>Status:</b> {{{status}}}</h6>
+      </div>
+      <div class="col-6">
+        <h6><b>Owner</b>:</b> {{{alert_owner__f_}}}</h6>
+      </div>
+      <div class="col-3">
+        <h6><b>Type:</b> {{{category}}}</h6>
+        
+      </div>
+      <div class="col-3">
+        <h6><b>On Hold</b>:</b> {{{should_this_job_be_put_on_hold_}}}</h6>
+        
+      </div>
+      <div class="col-12"> 
+        <h6><b>Summary:</b> {{{summary_title}}}</h6>
+        <hr>
+      </div>
+  {{/each}}
+  </div>
+</div>

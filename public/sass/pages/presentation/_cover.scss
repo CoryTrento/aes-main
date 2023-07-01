@@ -1,0 +1,48 @@
+.cover__page {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @include print() {
+    padding: 0;
+    margin: 0;
+    height: auto;
+    page-break-after: always;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-img {
+    height: 15.5in;
+    margin-top: 10px;
+  }
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &-customer {
+    text-align: center;
+    letter-spacing: 2px;
+    & h2 {
+      font-weight: 300;
+    }
+    margin-left: 50px;
+  }
+  &-aes {
+    margin-left: 50px;
+    justify-self: center;
+    text-align: center;
+    & p {
+      font-size: 1.2rem;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<div class="mt-2">
+  <h3 class="text-lg font-bold">
+    {{{generator._fid_221}}}
+    {{#ifCon generator._fid_221 "!=" "Partial Backup Profile"}}
+      <span class="font-thin italic">
+        (Typically Includes):
+      </span>
+    {{/ifCon}}
+  </h3>
+  <div class="flex ml-4">
+    <ul class="list-disc list-inside text-sm leading-snug">
+      {{#ifCon generator._fid_221 "==" "Partial Backup Profile"}}
+        <li>
+          (Typically Includes):
+        </li>
+      {{/ifCon}}
+      {{{formatLi generator._fid_223}}}
+    </ul>
+    <div class="ml-6 self-end">
+      <h3 class="text-med">
+        Essential appliances
+      </h3>
+      <div class="flex">
+        <ul class="list-disc list-inside text-sm leading-snug">
+          {{{formatLi generator._fid_222}}}
+        </ul>
+        <ul class="list-disc list-inside text-sm leading-snug ml-6">
+          {{{formatLi generator._fid_224}}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

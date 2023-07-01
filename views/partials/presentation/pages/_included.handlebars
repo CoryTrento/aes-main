@@ -1,0 +1,60 @@
+<div class="included">
+
+  {{!-- Image --}}
+  {{#ifCon _fid_378 "!=" '0'}}
+  <div class="included__image flex__50">
+    <div class="included__header">
+      Project Image
+    </div>
+    <div class="included__body">
+      <img src={{{_fid_373}}} alt="Project Image">
+    </div>
+  </div>
+  {{/ifCon}}
+
+  <div class="included__info {{#ifCon _fid_378 "!=" '0'}}flex__50{{else}}flex__100{{/ifCon}}">
+  
+    {{!-- Warranty --}}
+    <div class="included__warranty shadow-sm">
+      <div class="included__header">
+        Warranty
+      </div>
+      <div class="included__body">
+        {{#ifCon _fid_374 "!=" undefined}}
+        <div class="">{{{HTML _fid_374}}}</div>
+        {{/ifCon}}
+        {{#ifCon _fid_375 "!=" undefined}}
+        <div>{{{HTML _fid_375}}}</div>
+        {{/ifCon}}
+        {{#ifCon _fid_377 "!=" undefined}}
+        <div>{{{HTML _fid_377}}}</div>
+        {{/ifCon}}
+        {{#ifCon _fid_376 "!=" undefined}}
+        <div>{{{HTML _fid_376}}}</div>
+        {{/ifCon}}
+      </div>
+    </div>
+
+    {{!-- Included --}}
+    {{#ifCon _fid_383 "!=" "0"}}
+    <div class="included__costAdder shadow-sm">
+      <div class="included__header">
+        Included
+      </div>
+      <div class="included__body">
+        {{#ifCon _fid_384 "!=" "0"}}
+        <div class="promos">
+          {{{HTML _fid_380}}}
+        </div>
+        {{/ifCon}}
+        {{#ifCon _fid_385 "!=" "0"}}
+        <div class="adder">
+          {{{HTML _fid_382}}}
+        </div>
+        {{/ifCon}}
+      </div>
+    </div>
+    {{/ifCon}}
+
+  </div>
+</div>

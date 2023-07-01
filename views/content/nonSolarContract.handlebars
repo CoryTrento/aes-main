@@ -1,0 +1,58 @@
+<style>
+  .container {
+    text-align: justify;
+    font-family: Calibri (Body);
+    font-size: 14pt;
+  }
+
+  .pb-always {
+    page-break-after: always;
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-12 ">
+      <img src="{{content.image_link__f_}}" class="img-fluid">
+    </div>
+
+    <div class="col-md-8 col-sm-12 align-self-end">
+
+    </div>
+
+    <div class="col-12">
+      <hr style="border: .7px solid black;">
+    </div>
+  </div>
+  {{#if Warning}}
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">{{{Warning}}}</h1>
+      <h1 class="text-center">Please go back and lock this proposal.<br><a class="btn btn-primary text-white" href="https://aes.quickbase.com/db/bkqrxt547?a=dr&rid={{recId}}&rl=b8yb">Back
+          To Proposal</a></h1>
+    </div>
+  </div>
+  {{else}}
+  {{#if content}}
+  {{{parseTags content.h_1}}}
+  {{{parseTags content.h_2}}}
+  {{{parseContract content.p_1}}}
+  {{{parseContract content.p_2}}}
+  {{{parseContract content.p_3 contractObj}}}
+  {{{parseContract content.p_4}}}
+  {{{parseContract content.p_5}}}
+  {{/if}}
+  {{/if}}
+</div>
+
+<script>
+  if ("{{{contribution}}}" === "0") {
+    document.getElementById("customerCon").style.display = "none";
+    document.getElementById("priceWithCon").style.display = 'none';
+  }
+  if ("{{{CashOrFinanced}}}" === "Cash") {
+    document.getElementById("loanPrice").style.display = "none";
+  } else if ("{{{CashOrFinanced}}}" === "Loan") {
+    document.getElementById("cashPrice").style.display = "none";
+  }
+</script>

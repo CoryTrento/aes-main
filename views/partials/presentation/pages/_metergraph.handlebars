@@ -1,0 +1,8 @@
+<div class="meter__graph pb-always">
+  {{#each month_offset}}
+    <div class="month_offset" data-offset={{{this}}} data-target="canvas{{{../meter_name}}}{{{../canvas_id}}}">
+    </div>
+  {{/each}}
+  
+  <canvas id="canvas{{{meter_name}}}{{{canvas_id}}}"></canvas>
+</div>

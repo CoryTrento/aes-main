@@ -1,0 +1,46 @@
+<style>
+   @page {
+    size: landscape;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+</style>
+
+<div class="survey-container">
+  <div class="site__survey">
+  <div class="site__survey-left">
+    <div class="site__survey-agent">
+      <p>Rep Name: {{{rep._fid_58}}}</p>
+      <p>Rep Contact: {{{rep._fid_31}}}</p>
+    </div>
+    <div class="site__survey-customer">
+      <p>Customer Name: {{{_fid_312}}}</p>
+      <p>Customer Number: {{{_fid_652}}}</p>
+      <p>Address: {{{_fid_251}}}</p>
+    </div>
+    <div class="site__survey-system">
+      <p>Module Type: {{{_fid_608}}}</p>
+      <p>Module Count: {{{_fid_73}}}</p>
+      <p>Number of Arrays: {{{_fid_75}}}</p>
+      <p>Roof Type: {{{_fid_607}}}</p>
+      <p>Roof Pitch: {{{_fid_645}}}</p>
+    </div>
+    <div class="site__survey-notes">
+      <p>Notes: &#160; {{{_fid_646}}}</p>
+    </div>
+  </div>
+  <div class="site__survey-right">
+    {{#ifCon _fid_378 ">" 0}}
+      <img src="{{{_fid_373}}}">
+    {{/ifCon}}
+
+    {{#ifCon _fid_654 ">" 0}}
+      <img src="{{{_fid_653}}}">
+    {{/ifCon}}
+  </div>
+</div>
+</div>
+
+
+

@@ -1,0 +1,69 @@
+<div class="card mt-1 mb-1">
+  <div class="bg-lightBlue table__heading">
+    <h2 class="text-center">Included</h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      
+      {{#if proposal.marketing_array_to_use__f_}}
+        <div class="col-md-6">
+          <h5>Promotions</h5>
+            <ul>
+              {{#each proposal.marketing_array_to_use__f_}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+        </div>
+      {{/if}}
+
+      {{#if proposal.discount_array_to_use__f_}}
+        <div class="col-md-6">
+          <h5>Discounts</h5>
+            <ul>
+              {{#each proposal.discount_array_to_use__f_}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+        </div>
+      {{/if}}
+
+      {{#if proposal.rebate_array_to_use__f_}}
+        <div class="col-md-6">
+          <h5>Rebates</h5>
+            <ul>
+              {{#each proposal.rebate_array_to_use__f_}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+        </div>
+      {{/if}}
+
+      {{#if proposal.referral_array_to_use__f_}}
+        <div class="col-md-6">
+          <h5>Referrals</h5>
+            <ul>
+              {{#each proposal.referral_array_to_use__f_}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+        </div>
+      {{/if}}
+      
+      {{!-- Work efforts --}}
+      {{#if costAdders}}
+      <div class="col-md-6">
+        <h5>Work</h5>
+        <ul>
+        {{#each costAdders}}
+          {{#if title_of_work}}
+            <li>{{parseStrings title_of_work}}</li>
+          {{else}}
+            <li>{{{parseTags variable_name___adder_type_picker}}}</li>
+          {{/if}}
+        {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>

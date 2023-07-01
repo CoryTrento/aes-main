@@ -1,0 +1,87 @@
+<tr>
+  <th>
+    <h2 class="text-xl text-right font-bold pr-2">
+      Suggested
+      <br />
+      Energy
+      <br />
+      Solutions:
+    </h2>
+  </th>
+  {{#each pricing}}
+    <td class="border border-1 border-gray-500 rounded-lg">
+      {{! Body }}
+      <div
+        class="p-2 flex flex-col justify-center items-center print:p-1"
+        style="min-height: 100px;"
+      >
+        <div class="flex justify-center items-center flex-wrap">
+          {{#each offering}}
+            <div class="w-1/2 pb-2 pr-2">
+              <img style="max-width: 75px;" src="{{{_fid_213}}}" alt="Logos" />
+            </div>
+          {{/each}}
+        </div>
+        <ul class="list-none text-sm font-bold leading-tight m-0 p-0">
+          {{#each offering}}
+            <li>
+              {{{_fid_155}}}
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="border border-b border-gray-400"></div>
+      <div>
+        <div class="text-center">
+          {{#if hasFinancing}}
+            <div class="text-xs flex justify-between text-center px-1">
+              <div class="flex flex-1 justify-center">
+                <p>
+                  <span class="font-bold" style="font-size: 10px;">w/ Tax Credit Pay</span>
+                  <br>
+                  {{{toMoneyDec _fid_867}}}/mo
+                </p>
+              </div>
+              <div class="flex-1 border-l border-gray-500">
+                <p>
+                  <span class="font-bold" style="font-size: 10px;">w/out Tax Credit Pay</span>
+                  <br>
+                  {{{toMoneyDec _fid_1359}}}/mo
+                </p>
+              </div>
+            </div>
+          {{else}}
+            <p class="py-1 font-bold text-center">
+              {{{toMoneyDec _fid_235}}}
+            </p>
+          {{/if}}
+        </div>
+      </div>
+    </td>
+  {{/each}}
+</tr>
+<tr>
+  <th class="text-right font-bold pr-2 text-xs">
+
+      Est. Solar Production
+      <sup>
+        2
+      </sup>
+
+  </th>
+  {{#each pricing}}
+    <td class="text-center text-xs font-bold">
+      {{{_fid_868}}}
+    </td>
+  {{/each}}
+</tr>
+<tr>
+  <th class="text-right font-bold pr-2 text-xs">
+    25-Year Solar Power Value
+  </th>
+  {{#each pricing}}
+    <td class="text-center text-xs">
+      {{{toMoneyDec _fid_949}}}
+    </td>
+  {{/each}}
+</tr>

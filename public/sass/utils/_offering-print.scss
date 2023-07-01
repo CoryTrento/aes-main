@@ -1,0 +1,71 @@
+@media print {
+	nav {
+		display: none;
+	}
+	.container {
+		max-width: 100%;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.container.flex-end {
+		justify-content: flex-end;
+	}
+	.container.flex-between {
+		justify-content: space-between;
+	}
+
+	.pb-always {
+		page-break-after: always !important;
+	}
+
+	.page {
+		display: block;
+		margin: 0;
+	}
+
+	#cover-img {
+		max-height: 80vh !important;
+	}
+
+	#page_four {
+		height: auto !important;
+	}
+
+	#house-electric {
+		top: 115px !important;
+		max-width: 90% !important;
+		left: 5% !important;
+	}
+
+	#nem-text {
+		max-width: 90% !important;
+		bottom: -560px !important;
+		left: 5% !important;
+	}
+
+	#tou-relative {
+		height: 90% !important;
+	}
+
+	#tou-graph {
+		width: 90% !important;
+		left: 5%;
+		top: 18% !important;
+	}
+
+	#compare {
+		display: none;
+	}
+
+	#hand-phone {
+		max-width: 300px;
+	}
+
+	@page {
+		size: letter landscape;
+		margin: 0;
+	}
+}

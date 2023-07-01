@@ -1,0 +1,12 @@
+.main__nav {
+  background-color: #39607a;
+
+  &-ul li a {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    color: white !important;
+    font-style: italic;
+  }
+}

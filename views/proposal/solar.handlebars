@@ -1,0 +1,51 @@
+
+
+
+{{!-- Nav Bar --}}
+<div class="d-print-none">
+  {{> proposal/_solarNav}} 
+</div>
+
+{{!-- Page Content Not Proposals --}}
+<div class="proposal {{hideCompare}}" id="aboutAes">
+  <div class="container">
+    {{!-- PAGE ONE ************************************************************** PAGE ONE --}}
+    <div id="pageContent">
+      {{!-- This Is Page One --}}
+      <div id="pageOne">
+        {{> proposal/_pageOne}}
+      </div>
+      {{!-- This Is Page Two --}}
+      <div id="pageTwo">
+        {{> proposal/_pageTwo}}
+      </div>
+      {{!-- This Is Page Three --}}
+      <div id="pageThree">
+        {{> proposal/_pageThree}}
+      </div>
+      {{!-- This Is The Actual Proposals --}} 
+    </div>
+  </div>
+</div>
+
+{{!-- Each Proposal --}}
+<div> 
+  {{#each finishedArray}}
+    <div class="d-none d-print-block proposal" id="{{proposal.proposal_title}}">
+      {{> proposal/_finishedArray}}
+    </div>
+  {{/each}}
+  
+  <div class="d-none d-print-block proposal {{showCompare}}" id="compareProposal">
+      {{> proposal/_compareProposals}}
+  </div>
+</div>
+
+{{!-- Footer --}}
+<div class="proposal__footer">
+  {{> proposal/_footer}}
+</div>
+
+{{!-- JavaScript For Navbar / Bar chart needs to be renamed it formats content --}}
+<script src="/javascript/nav.js"></script>
+<script src="/javascript/basic.js"></script>

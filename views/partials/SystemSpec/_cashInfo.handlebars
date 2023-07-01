@@ -1,0 +1,51 @@
+<div class="mb-3">
+  {{!-- Financing Information ************************************************************************** --}}
+  <div class="row ml-0 mt-3" id="financeInfo">
+    <div class="col-4">
+      <h6><b>Payment Method:</b> {{{proposal.payment_method}}}</h6>
+      
+      <h6><b>Materials Cost:</b> {{{toMoneyDec proposal.agreement_materials__f_}}}</h6>
+      <h6><b>Contract Amount:</b> {{{toMoneyDec proposal.agreement_price__f_}}}</h6>
+    </div>
+    <div class="col-4">
+      <h6><b>Finance Institution:</b> Self</h6>
+      <h6><b>Price Before Discounts:</b> {{toMoneyDec proposal.agreement_price_before_discounts__f_}}</h6>
+    </div>
+    <div class="col-4">
+      <h6><b>CSD:</b> {{{proposal.dateAgreementSigned}}}</h6>
+      <h6><b>Commission:</b> {{{toMoneyDec proposal.commission__f_}}}</h6>
+    </div>
+
+    {{!-- Payment Information ************************************************************************** --}}
+    <div class="col-12 ">
+      <hr>
+      <h6><b>Payment Schedule</b></h6>
+      <table class="table table-sm">
+        <tbody>
+          <tr>
+            <td><b>{{toMoneyDec proposal.agreement_price__f_}}</b></td>
+            <td><b>System Price</b></td>
+          </tr>
+          <tr>
+            <td>{{toMoneyDec proposal.cash_deposit__f_}}</td>
+            <td>Deposit</td>
+          </tr>
+          <tr>
+            <td>{{toMoneyDec proposal.commencement_of_work_amount__f_}}</td>
+            <td>Due upon commencement of work</td>
+          </tr>
+          <tr>
+            <td>{{toMoneyDec proposal.commencement_of_panel_installation__f_}}</td>
+            <td>Due upon commencement of panel installation</td>
+          </tr>
+          <tr>
+            <td>{{toMoneyDec proposal.balance_upon_completion_amount__f_}}</td>
+            <td>Balance upon completion of system determined by Building Permit Final</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    {{> SystemSpec/_promotionsInfo}}
+  </div>
+</div>

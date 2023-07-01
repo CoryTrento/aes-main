@@ -1,0 +1,85 @@
+.page {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.compare-table {
+	@media print {
+		padding-right: 5px;
+	}
+
+	& td {
+		width: 150px;
+	}
+
+	& th {
+		width: 150px;
+	}
+}
+
+.warranty__table {
+	& table {
+		width: 100%;
+		border-collapse: separate;
+		border-spacing: 5px;
+		text-align: left;
+	}
+
+	& .heading {
+		text-align: center;
+
+		& th:not(:first-child) {
+			border: 1px solid rgba(0, 0, 0, 0.5);
+			border-radius: 3px;
+			padding: 10px;
+		}
+	}
+
+	& td:not(:first-child) {
+		text-align: center;
+	}
+
+	& svg {
+		width: 15px;
+		margin: 0 auto;
+	}
+
+	& th,
+	& td {
+		font-size: 14px;
+	}
+
+	& .title {
+		padding-top: 20px;
+	}
+}
+
+#cash,
+#finance {
+	display: none;
+}
+
+#warranty,
+#cash,
+#finance {
+	@media print {
+		display: block;
+		transform: scale(.93) !important;
+	}
+}
+
+.nem_doesnt_cover {
+	max-width: 300px;
+	position: absolute;
+	bottom: 10%;
+	right: 0%;
+
+	@media print {
+		max-width: 200px;
+		bottom: 0%;
+	}
+}
+
+@import 'utils/offering-print';

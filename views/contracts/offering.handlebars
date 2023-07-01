@@ -1,0 +1,93 @@
+<style>
+
+  .content {
+    max-width: 1100px;
+    margin: auto;
+    text-align: justify;
+    font-family: Calibri !important; 
+    font-size: 14pt;
+    padding: 10px 20px !important;
+  }
+  .flex {
+    display: flex;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  #logo {
+    max-width: 220px;
+  }
+
+  #heading {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+  }
+
+  .pb-always {
+    page-break-after: always !important;
+  }
+
+  .pb-before {
+    page-break-before: always !important;
+  }
+
+  .sign {
+    margin-top: 20px;
+  }
+
+  @page  
+{ 
+    size: portrait;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+} 
+
+</style>
+
+<div class="content">
+  <div class="pb-before pb-always">
+
+  {{{HTML _fid_14}}}
+  </div>
+  <div class="flex justify-between" id="heading">
+    <img src="{{{_fid_31}}}" alt="AES Logo" id="logo">
+  </div>
+  <div class="main">
+      <div class="aes-info">
+        {{{HTML _fid_7}}}
+      </div>
+      <div class="type">
+        {{{HTML _fid_8}}}
+      </div>
+    </div>
+    {{{HTML _fid_9}}}
+    {{{HTML _fid_10}}}
+    <div class="pb-before pb-always">
+    {{{HTML _fid_11}}}
+    {{{HTML _fid_10}}}
+    </div>
+     {{{HTML _fid_12}}}
+     <div class="pb-always"></div>
+     {{{HTML _fid_13}}}
+</div>
+
+<script>
+   const isCash = '{{{isCash}}}'
+   const hasContribution = '{{{hasContribution}}}'
+
+   console.log(hasContribution)
+
+   if(isCash == 1) {
+    $('.isLoan').remove();
+   } else {
+     $('.isCash').remove();
+   }
+   if(hasContribution == 0 || isCash == 1) {
+    $('.hasContribution').remove();
+   } 
+</script>

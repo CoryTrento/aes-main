@@ -1,0 +1,63 @@
+<div class="mb-3">
+  {{!-- Financing Information ************************************************************************** --}}
+  <div class="row ml-0 mt-3" id="financeInfo">
+    <div class="col-12">
+      <h6><b>CSD:</b> {{{proposal.dateAgreementSigned}}}</h6>
+    </div>
+    <div class="col-4">
+      <h6><b>Payment Method:</b> {{{proposal.payment_method}}}</h6>
+      <h6><b>Materials Cost:</b> {{{toMoneyDec proposal.agreement_materials__f_}}}</h6>
+      <h6><b>Contract Amount:</b> {{{toMoneyDec proposal.agreement_price__f_}}}</h6>
+    </div>
+    <div class="col-4">
+      <h6><b>Finance Institution:</b> {{{proposal.variable_name___financing_institution}}}</h6>
+      {{!-- <h6><b>Price Before Discounts:</b> $28,073.52</h6> --}}
+      <h6><b>Price Before Discounts:</b> {{toMoneyDec proposal.agreement_price_before_discounts__f_}}</h6>
+      
+      <h6><b>Loan Input:</b> ${{{proposal.financed_price_per_watt__at_lock_}}}(Per Watt)</h6>
+    </div>
+    <div class="col-4">
+      
+      {{#if proposal.sunpower_loan_agreement_number}}
+        <h6><b>ref#:</b> {{{proposal.sunpower_loan_agreement_number}}}</h6>
+      {{else}}
+        <h6><b><b>ref#:</b> <span class="text-danger">Missing</span></b></h6>
+      {{/if}}
+        
+      {{#ifCon proposal.variable_name___financing_institution "==" "Sunpower"}}
+        
+      {{/ifCon}}
+
+      <h6><b>Commission:</b> {{{toMoneyDec proposal.commission__f_}}}</h6>
+    </div>
+
+    {{!-- Payment Information ************************************************************************** --}}
+    <div class="col-12 ">
+      <hr>
+      <h6><b>Payment Schedule</b></h6>
+      <table class="table table-sm">
+        <tbody>
+          {{#if proposal.customer_contribution_portion}}
+          <tr>
+            <td>{{toMoneyDec proposal.agreement_price__f_}}</td>
+            <td>Price includes a {{toMoneyDec proposal.customer_contribution_portion}} customer contribution.</td>
+          </tr>
+          {{/if}}
+          <tr>
+            <td>{{toMoneyDec proposal.agreement_price__f_}}</td>
+            <td>Financed price, payment schedule per financing term.</td>
+          </tr>
+          {{#if proposal.customer_contribution_portion}}
+          <tr>
+            <td>{{toMoneyDec proposal.customer_contribution_portion}}</td>
+            <td>Customer contribution</td>
+          </tr>
+          {{/if}}
+        </tbody>
+      </table>
+    </div>
+
+    {{> SystemSpec/_promotionsInfo}}
+  </div>
+</div>
+    

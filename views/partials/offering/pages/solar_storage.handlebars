@@ -1,0 +1,99 @@
+<div class="page leading-relaxed text-gray-800" id="page_{{{_fid_3}}}">
+  <div class="container mx-auto print:px-5">
+    {{> offering/layout/header}}
+    <div class="flex -mt-2">
+      {{! Left Side }}
+      <div class="w-1/2 print:pr-5">
+        {{! Image and graph }}
+        <div>
+          {{> offering/layout/kWh}}
+          <div class="w-full mt-5">
+            <img src="{{{_fid_373}}}" alt="House Image" style="max-height: 400px; with: auto;" />
+          </div>
+        </div>
+      </div>
+      {{! Right Side }}
+      <div class="w-1/2 flex flex-col">
+        <div class="flex items-start">
+          <a href="{{{solar._fid_272}}}">
+            <img class="mt-10" src="{{{solar._fid_198}}}" style="max-width: 170px; height: auto; max-height: 200px;"
+              alt="Product Image" />
+          </a>
+          <div class="w-6/12 print:w-7/12 flex flex-col justify-between mt-5 ml-10">
+            <div class="w-full">
+              <p class="font-bold mb-2">
+                Equipment
+              </p>
+              <ul class="list-none text-sm">
+                <li>
+                  {{{solar._fid_155}}}
+                </li>
+                <li>
+                  {{{solar._fid_194}}}
+                </li>
+                <li>
+                  {{{solar._fid_196}}}
+                </li>
+                <li>
+                  Monitoring:
+                  {{{solar._fid_149}}}
+                </li>
+                {{#if hasSolarInsure}}
+                  <li>
+                    <a href="https://aes.quickbase.com/up/bkdfitsjr/a/r43379/e6/v0?Copy of SolarInsure Brochure plus certificate package.pdf"
+                      class="text-blue-600">
+                      SolarInsure
+                    </a>
+                  </li>
+                {{/if}}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="border-b-2 border-gray-400 my-6"></div>
+        <div class="flex">
+          <div class="w-4/12">
+            <h3 class="font-bold text-xl">
+              Battery Storage
+            </h3>
+            <a href="{{{storage._fid_272}}}">
+              <img class="mt-5" src="{{{storage._fid_198}}}" alt="Product Image" />
+            </a>
+          </div>
+          <div class="w-8/12">
+            <div class="flex items-center">
+              <h3 class="text-5xl font-bold">
+                {{{storage._fid_197}}}
+              </h3>
+              <p class="ml-4 leading-tight">
+                Continuous power
+                <br />
+                <span class="ml-2">
+                  during an outage
+                </span>
+              </p>
+            </div>
+            <div class="flex mt-5">
+              <div>
+                <p class="font-bold mb-2">
+                  Equipment
+                </p>
+                <ul class="list-none text-sm">
+                  <li>
+                    {{{storage._fid_155}}}
+                  </li>
+                  <li>
+                    {{{storage._fid_47}}}
+                  </li>
+                </ul>
+              </div>
+              <div class="ml-10">
+                {{> offering/layout/offering/storage-backup}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

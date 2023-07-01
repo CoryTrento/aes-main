@@ -1,0 +1,371 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+  <style>
+    .container {
+      display: none
+    }
+
+    img {
+      height: 120px;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      /* Set the hr color */
+      color: #333;
+      /* old IE */
+      background-color: #333;
+      /* Modern Browsers */
+      display: block;
+      height: 2px;
+      background: transparent;
+      width: 100%;
+      border: none;
+      border-top: solid 1px rgb(0, 0, 0);
+    }
+
+    .poNum {
+      font-size: 25px;
+    }
+
+    .font-weight-bold {
+      font-size: 16px;
+      margin: 1px;
+    }
+
+    .card {
+      border: 2px solid black;
+      border-radius: 4px;
+      color: black;
+    }
+
+    .card-header {
+      border-bottom: 2px solid black;
+    }
+
+    .table {
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+    }
+
+    body {
+      color: black;
+    }
+  </style>
+  <title>Print PO</title>
+</head>
+
+<body>
+  <div class="container" id="mainContainer">
+    <div class="col row mt-5">
+      <div class="col-6 mb-5">
+        <img src="https://aes.quickbase.com/up/bkdfitsjr/a/r23606/e6/v0?aeslogo.png" class="" alt="">
+      </div>
+      <div class="col-6 mb-5 text-right">
+        <p>
+          <b>
+            <div class="poNum" id="">Purchase Order:
+              <span id="poDisplay">asdasd</span>
+            </div>Order Date:
+            <span id="orderDisplay"></span>
+            <br>Expected Receipt Date:
+            <span id="exDate"></span>
+            <br>Terms:
+            <span id="terms"></span>
+          </b>
+        </p>
+      </div>
+      <div class="col-4">
+        <div class="card">
+          <h3 class="card-header text-center ">Vendor</h3>
+          <div class="card-block">
+            <p class="card-text ml-3 p-1" id="vendorAddress">SunPower Corporation
+              <br>P.O. Box 742368
+              <br> Los Angeles CA 98402-2368</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card">
+          <h3 class="card-header text-center text-black">Bill To</h3>
+          <div class="card-block">
+            <p class="card-text ml-3 p-1">Alternative Energy Systems, Inc.
+              <br>13620 HWY 99
+              <br> Chico CA 95973</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card">
+          <h3 class="card-header text-center">Ship To</h3>
+          <div class="card-block" id="shipTo">
+            <p class="card-text ml-3 p-1">Alternative Energy Systems, Inc.
+              <br>13620 HWY 99
+              <br> Chico CA 95973</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mt-4">
+        <table class="table table-sm mt-2">
+          <thead>
+            <tr class="border">
+              <th scope="col">MPN</th>
+              <th scope="col">Manfacturer / Model</th>
+              <th scope="col">Description</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Unit Cost</th>
+              <th scope="col">Total Cost</th>
+            </tr>
+          </thead>
+          <tbody id="displayTable">
+            <tr>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-6" id="comments">
+        <p>
+          <div class="poNum">
+            <b>Comments:</b>
+
+          </div>
+        </p>
+        <div id="commentBox">
+        <div class="form-group">
+          <textarea class="form-control" rows="5" id="commentText"></textarea>
+        </div>
+        <button class="btn btn-primary" id="enterComments">Enter Comments</button>
+        <button class="btn btn-danger" id="noComments">No Comments</button>
+      </div>
+    </div>
+      <div class="col-2"></div>
+      <div class="col-4">
+        <div class="mt-4 text-left">
+          <h5 class="text-justify font-weight-bold">Subtotal: $
+            <span id="subTotal"></span>
+          </h5>
+          <h5 class="text-justify font-weight-bold">Discounts: $
+            <span id="discount"></span>
+          </h5>
+          <h5 class="text-justify font-weight-bold">Shipping/Handling: $
+            <span id="shipping"></span>
+          </h5>
+          <h5 class="text-justify font-weight-bold">Tax: $
+            <span id="tax"></span>
+          </h5>
+          <hr>
+          <h5 class="text-justify font-weight-bold">Balance Due: $
+            <span id="balance"></span>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script>
+    var parameters = location.search.substring(1).split("&");
+    console.log(parameters[2].slice(4))
+
+    //Turn XML to JSON
+    var XMLFlatToObj = function (xml, type) {
+      var data = [];
+      var record = {};
+      $("record", xml).each(function () {
+        record = {};
+        $(this).children().each(function () {
+          record[$(this).prop("tagName")] = $(this).text();
+        });
+        data.push(record);
+      });
+      return data;
+    }
+
+
+    //Get Current Date
+    function getDate(date) {
+      var dt = new Date(Number(date));
+      var cDate = new Date(dt.setDate(dt.getDate() + 1))
+      if (cDate.toString().slice(4, 15) !== 'Jan 01 1970') {
+        return cDate.toString().slice(4, 15)
+      } else {
+        return " "
+      }
+    }
+
+    //Remove Comments
+    function removeComments() {
+      commentsDiv.innerHTML = ''
+    }
+
+    //Add Comments
+    function addComments() {
+      commentsDiv.innerHTML =
+        `
+                <p class="mt-1 poNum"><b>Comments:</b></p>
+                <p>${commentText.value}</p>`
+    }
+
+
+
+
+    //Holders For Data
+    var inventory = [];
+    var job = [];
+    var holdPONum = []
+    var jobNum;
+    var recordNumber
+
+    //Elements for printing
+    var poDisplay = document.getElementById('poDisplay');
+    var dateDisplay = document.getElementById('orderDisplay');
+    var expectedDate = document.getElementById('exDate');
+    var subTotalDisplay = document.getElementById('subTotal');
+    var commentsDiv = document.getElementById('comments');
+    var commentText = document.getElementById('commentText');
+    var RecNumVal = document.getElementById('recNumVal');
+    var inputContainer = document.getElementById('inputContainer');
+    var mainContainer = document.getElementById('mainContainer');
+    var displayDiscount = document.getElementById('discount');
+    var displayShipping = document.getElementById('shipping');
+    var displayTax = document.getElementById('tax');
+    var displayBalance = document.getElementById('balance');
+    var vendorAddress = document.getElementById('vendorAddress');
+    var shipToRender = document.getElementById('shipTo');
+    var termsRender = document.getElementById('terms')
+    //EventListener
+    document.getElementById("noComments").addEventListener('click', removeComments)
+    document.getElementById('enterComments').addEventListener('click', addComments)
+
+    function renderDisplay() {
+      mainContainer.style.display = "block"
+    }
+
+// ***************************************************************************** Make Change Here ****************************************************************
+    function getRecord() {
+      $.get(
+        `https://aes.quickbase.com/db/bmyc9ht49?a=API_DoQuery&query={3.EX.${parameters[2].slice(4)}}&clist=13.6.48.29.37.73.74.75.80.81.82.83.84.85.86.93.98&apptoken=dyywuridtd4r4r5vnkmbdm3qvpi&username=mcurtis@solarenergyforlife.com&password=mc135911`
+      ).then((data) => {
+        job = (XMLFlatToObj(data))
+        console.log(XMLFlatToObj(data))
+
+        jobNum = job[0].project_record___job__;
+        console.log(job[1])
+        //Get PO Record Variable
+        var poNum, orderDate, expected, vendor, discounts, shipping, tax, city, state, postal, street, shipTo,
+          shipToAddress, terms, commentBox;
+
+        poNum = job[0].po____f_
+        orderDate = getDate(job[0].date_ordered)
+        expected = getDate(job[0].expected_receive_date)
+        vendor = job[0].outside_org___title
+        discountIt = job[0].discounts != null ? Number(job[0].discounts).toFixed(2) : toFixed(2);
+        shipping = job[0].shipping != null ? Number(job[0].shipping).toFixed(2) : toFixed(2);
+        tax = job[0].tax != null ? Number(job[0].tax).toFixed(2) : toFixed(2);
+        city = job[0].outside_org___billing_address__city
+        state = job[0].outside_org___billing_address__state_region
+        street = job[0].outside_org___billing_address__street_1
+        postal = job[0].outside_org___billing_address__postal_code
+        shipTo = job[0].ship_to;
+        terms = job[0].outside_org___terms;
+        commentBox = job[0].print_po_comments;
+        commentBox = commentBox.split('*').join('<br>')
+        console.log(commentBox)
+
+        if (shipTo === 'Other') {
+          shipToAddress = job[0].ship_to_address;
+          shipToRender.innerHTML = `<p class="ml-2 p-2">${shipToAddress}</p>`
+        } else if (shipTo === 'Yuba City') {
+          shipToAddress = 'Alternative Energy Systems, Inc. <br>3455 Industrial Dr<br> Yuba City, CA 95993';
+          shipToRender.innerHTML = `<p class='ml-2'>${shipToAddress}</p>`
+        }
+
+        vendorAddress.innerHTML = `${vendor} <br>${street} <br>${city}, ${state}, ${postal}`
+        poDisplay.innerHTML = poNum;
+        dateDisplay.innerHTML = orderDate;
+        expectedDate.innerHTML = expected;
+        displayDiscount.innerHTML = discountIt;
+        displayShipping.innerHTML = shipping;
+        displayTax.innerHTML = tax;
+        termsRender.innerText = terms;
+        if(commentBox !== ''){
+          commentsDiv.innerHTML = `
+                <p class="mt-1 poNum"><b>Comments:</b></p>
+                <p>${commentBox}</p>`
+        }
+
+        holdPONum.push(job[0].po____f_)
+        console.log(job[0].po____f_, 'Mike');
+      }).then(() => {
+        $.get(
+            `https://aes.quickbase.com/db/bmtasik3w?a=API_DoQuery&query={22.EX.'${job[0].po____f_}'}&clist=22.74.35.72.62.91.92.21.66&apptoken=dyywuridtd4r4r5vnkmbdm3qvpi&username=mcurtis@solarenergyforlife.com&password=mc135911`
+          )
+          .then((data) => {
+            inventory = XMLFlatToObj(data)
+            console.log(inventory, 'this is data')
+          }).then(() => {
+
+            var displayTable = document.getElementById('displayTable')
+            var html
+            var subTotal = 0;
+
+            inventory.forEach(function (item, index) {
+              console.log(item)
+              var balanceDue = subTotal + Number(tax.innerHTML) + Number(shipping.innerHTML) - Number(
+                discountIt)
+              subTotalDisplay.innerHTML = subTotal.toFixed(2)
+              displayBalance.innerHTML = balanceDue.toFixed(2)
+              renderDisplay()
+              var mpn, manfacturer, description, quantity, unitCost, totalCost, displayQauntity,
+                quantityFromPPI;
+              manfacturer = item.model_number__for_lock_;
+              quantity = item.quantity_requested;
+              quantityFromPPI = item.quantity_ordered_from_ppi__for_vendor_po_;
+              totalCost = item.total_value_ordered__f_;
+              unitCost = item.value_per_unit__f_;
+              mpn = item.product_record___manufacturers_part_number;
+              description = item.product_record___description;
+              subTotal += Number(totalCost)
+              if (quantity) {
+                displayQauntity = quantity
+              } else {
+                displayQauntity = quantityFromPPI
+              }
+
+
+		console.log('I am rendered')
+                html =
+                  `<tr>
+                <td>${mpn}</td>
+                <td>${manfacturer}</td>
+                <td>${description}</td>
+                <td>${displayQauntity}</td>
+                <td>$${unitCost}</td>
+                <td>$${totalCost}</td>
+                </tr>`
+                displayTable.innerHTML += html
+
+                var balanceDue = subTotal + Number(tax.innerHTML) + Number(shipping.innerHTML) - Number(
+                  discountIt)
+                subTotalDisplay.innerHTML = subTotal.toFixed(2)
+                displayBalance.innerHTML = balanceDue.toFixed(2)
+
+              renderDisplay()
+
+            })
+
+          })
+
+      })
+    }
+    getRecord()
+  </script>
+</body>
+
+</html>

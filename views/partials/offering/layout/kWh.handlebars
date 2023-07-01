@@ -1,0 +1,79 @@
+{{! KW and SVG }}
+<div class="flex items-center mt-4 ml-2">
+  {{! kW Number }}
+  <div class="mr-20">
+    <small class="font-bold">
+      System Size
+    </small>
+    <div class="-mt-2">
+      <div class="flex items-center justify-center">
+        <h3 class="text-3xl font-semibold">
+          {{{_fid_74}}}
+        </h3>
+        <p class="text-2xl">
+          kW
+        </p>
+      </div>
+      <div class="border border-dotted"></div>
+      <div class="text-center">
+        <p class="font-bold italic">
+          {{{toNumber _fid_336}}}
+          kWh
+        </p>
+        <small class="text-sm italic">
+          Est. Energy Production
+        </small>
+      </div>
+    </div>
+  </div>
+  {{! SVG }}
+  <div>
+    <div class="flex items-center">
+      <p class="text-sm">
+        kW Offset
+      </p>
+      <svg
+        width="100px"
+        height="100px"
+        viewBox="0 0 42 42"
+        class="donut justify-content-start"
+      >
+        <circle
+          class="donut-hole"
+          cx="21"
+          cy="21"
+          r="15.91549430918954"
+          fill="#fff"
+        ></circle>
+        <circle
+          class="donut-ring"
+          cx="21"
+          cy="21"
+          r="15.91549430918954"
+          fill="transparent"
+          stroke="#d2d3d4"
+          stroke-width="3"
+        ></circle>
+        <circle
+          class="donut-segment"
+          cx="21"
+          cy="21"
+          r="15.91549430918954"
+          fill="transparent"
+          stroke="#12aa40"
+          stroke-width="3"
+          stroke-dasharray="{{{_fid_352}}} {{{_fid_353}}}"
+          stroke-dashoffset="3"
+        ></circle>
+      </svg>
+      <p class="text-sm">
+        {{{toNumber _fid_352}}}
+        %
+      </p>
+    </div>
+    <p class="text-sm w-full ml-16">
+      Efficiency:
+      {{{_fid_354}}}
+    </p>
+  </div>
+</div>

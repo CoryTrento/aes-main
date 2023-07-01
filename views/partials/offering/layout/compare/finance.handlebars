@@ -1,0 +1,127 @@
+{{! Finance Info  }}
+{{#if hasFinancing}}
+  <div class="financeInfo">
+    <tr>
+      <th colspan="{{pricingLength}}" class="text-2xl text-center pt-5 print:pt-2 print:text-xl">
+        Financed System Details
+      </th>
+    </tr>
+    <tr>
+      <th class="text-right font-normal pr-4 text-xs">
+        Finance Info
+        <sup>
+          3
+        </sup>
+      </th>
+      {{#each pricing}}
+        <td class="text-center text-xs bg-gray-300">
+          {{#if hasFinancing}}
+            {{{_fid_519}}}
+          {{/if}}
+        </td>
+      {{/each}}
+    </tr>
+    <tr>
+      <th class="text-right font-bold pr-4 text-xs">
+        Total System Cost
+      </th>
+      {{#each pricing}}
+        <td class="text-center text-xs font-bold">
+          {{#if hasFinancing}}
+            {{{toMoneyDec _fid_979}}}
+          {{/if}}
+        </td>
+      {{/each}}
+    </tr>
+    <tr>
+      <th class="text-right font-normal pr-4 text-xs">
+        AES Discounts
+      </th>
+      {{#each pricing}}
+        <td class="text-center text-xs bg-gray-300">
+          {{#if hasFinancing}}
+            {{{toMoneyDec _fid_819}}}
+          {{/if}}
+        </td>
+      {{/each}}
+    </tr>
+    <tr>
+      <th class="text-right font-bold pr-4 text-xs">
+        Initial Financed Amount
+      </th>
+      {{#each pricing}}
+        <td class="text-center text-xs font-bold">
+          {{#if hasFinancing}}
+            {{{toMoneyDec _fid_257}}}
+          {{/if}}
+        </td>
+      {{/each}}
+    </tr>
+    <tr>
+      <th class="text-right font-normal pr-4 text-xs">
+        Tax Credit Value
+        <sup>
+          4
+        </sup>
+      </th>
+      {{#each pricing}}
+        <td class="text-center text-xs bg-gray-300">
+          {{#if hasFinancing}}
+            {{{toMoneyDec _fid_356}}}
+          {{/if}}
+        </td>
+      {{/each}}
+    </tr>
+    <tr>
+      <th class="text-right font-normal pr-4 text-xs">
+        Cash Contribution to Loan
+      </th>
+      {{#each pricing}}
+        <td class="text-center text-xs">
+          {{#if hasFinancing}}
+            {{{toMoneyDec _fid_225}}}
+          {{/if}}
+        </td>
+      {{/each}}
+    </tr>
+    <tr>
+      <th class="text-right font-normal pr-4 text-xs">
+        AES Rebates
+      </th>
+      {{#each pricing}}
+        <td class="text-center text-xs bg-gray-300">
+          {{#if hasFinancing}}
+            {{{toMoneyDec _fid_866}}}
+          {{/if}}
+        </td>
+      {{/each}}
+    </tr>
+    {{!-- <tr>
+      <th class="text-right font-normal pr-4 text-xs">
+        SGIP Rebate
+        <sup>
+          5
+        </sup>
+      </th>
+      {{#each pricing}}
+        <td class="text-center text-xs">
+          {{#if hasFinancing}}
+            {{{_fid_818}}}
+          {{/if}}
+        </td>
+      {{/each}}
+    </tr> --}}
+    <tr>
+      <th class="text-right font-bold pr-4 text-xs">
+        Net Financed Amount
+      </th>
+      {{#each pricing}}
+        <td class="text-center text-xs font-bold">
+          {{#if hasFinancing}}
+            {{{toMoneyDec _fid_825}}}
+          {{/if}}
+        </td>
+      {{/each}}
+    </tr>
+  </div>
+{{/if}}

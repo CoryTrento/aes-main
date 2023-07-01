@@ -1,0 +1,60 @@
+<div class="page leading-relaxed text-gray-800" id="page_{{{_fid_3}}}">
+  <div class="container mx-auto pb-always pb-always print:px-10">
+    {{> offering/layout/header}}
+    <div class="flex -mt-2">
+      {{! Left Side }}
+      <div class="w-1/2">
+        {{! Image and graph }}
+        {{> offering/layout/kWh}}
+        <div class="w-full mt-5">
+          <img class="ml-5" src="{{{_fid_373}}}" alt="" style=" max-height: 500px;" />
+        </div>
+      </div>
+      {{! Right Side }}
+      <div class="w-1/2 flex flex-col">
+        <div class="flex mt-5">
+          <div>
+            <p class="font-bold mb-1">
+              Equipment
+            </p>
+            <ul class="list-none text-sm">
+              <li>
+                {{{solar._fid_155}}}
+              </li>
+              <li>
+                {{{solar._fid_194}}}
+              </li>
+              <li>
+                {{{solar._fid_196}}}
+              </li>
+              <li>
+                Monitoring:
+                {{{solar._fid_149}}}
+              </li>
+            </ul>
+          </div>
+          <div class="ml-10">
+            {{#if hasSolarInsure}}
+              <p class="font-bold mb-1">
+                Warranties
+              </p>
+              <ul class="list-none text-sm">
+                <li>
+                  <a href="https://aes.quickbase.com/up/bkdfitsjr/a/r43379/e6/v0?Copy of SolarInsure Brochure plus certificate package.pdf"
+                    class="text-blue-600">
+                    SolarInsure
+                  </a>
+                </li>
+              </ul>
+            {{/if}}
+          </div>
+        </div>
+        <a href="{{{solar._fid_272}}}">
+          <img class="mt-10 print:mt-5 mr-5" src="{{{solar._fid_198}}}" alt="Product Image"
+            style="max-width: 300px;" />
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>

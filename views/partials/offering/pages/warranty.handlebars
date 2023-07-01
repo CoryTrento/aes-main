@@ -1,0 +1,451 @@
+<div class="page text-gray-800" id="warranty">
+  <div class="container mx-auto print:px-5">
+    {{! Head }}
+    <div class="flex justify-between">
+      <div>
+        <h2 class="font-bold text-xl">
+          Your investment will be protected with the industry’s best warranties.
+        </h2>
+        <p class="text-sm">
+          Click on an energy solution product below to see specific warranty terms and details.
+        </p>
+      </div>
+      <img
+        style="max-width: 220px;"
+        src="https://aes.quickbase.com/up/bkdfitsjr/a/r23606/e6/v0?aeslogo.png"
+        alt="AES Logo"
+      />
+    </div>
+    {{! Table }}
+    <div class="warranty__table mt-3">
+      <table>
+        <tr class="heading">
+          <th></th>
+          <th>
+            5 Year
+            <br />
+            Product
+          </th>
+          <th>
+            10 Year
+            <br />
+            Product
+          </th>
+          <th>
+            15 Year
+            <br />
+            Product
+          </th>
+          <th>
+            20 Year
+            <br />
+            Product
+          </th>
+          <th>
+            25 Year
+            <br />
+            Product
+          </th>
+          <th>
+            Parts &
+            <br />
+            Shipping
+          </th>
+          <th>
+            Labor
+          </th>
+          <th>
+            SolarInsure
+            <sup>
+              *
+            </sup>
+            Extended
+            <br />
+            Warranty Available?
+          </th>
+          <th>
+            Production
+            <br />
+            Warranty
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Solar
+          </th>
+        </tr>
+        {{#each warranty}}
+          {{#ifCon _fid_87 "==" "Solar Panels"}}
+            <tr>
+              <td>
+                <a class="text-blue-600" href="{{{_fid_90}}}">{{{_fid_88}}}</a>
+              </td>
+              <td>
+                {{#ifCon _fid_79 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                   {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_80 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_93 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_81 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_82 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_83 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_84 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_85 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{{_fid_86}}}
+              </td>
+            </tr>
+          {{/ifCon}}
+        {{/each}}
+        <tr>
+          <th class="title">
+            Inverters
+          </th>
+        </tr>
+        {{#each warranty}}
+          {{#ifCon _fid_87 "==" "Solar Inverters"}}
+            <tr>
+              <td>
+                <a class="text-blue-600" href="{{{_fid_90}}}">{{{_fid_88}}}</a>
+              </td>
+              <td>
+                {{#ifCon _fid_79 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                   {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_80 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_93 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_81 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_82 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_83 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_84 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_85 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{{_fid_86}}}
+              </td>
+            </tr>
+          {{/ifCon}}
+        {{/each}}
+        <tr>
+          <th class="title">
+            Monitoring
+          </th>
+        </tr>
+        {{#each warranty}}
+          {{#ifCon _fid_87 "==" "Monitoring"}}
+            <tr>
+              <td>
+                <a class="text-blue-600" href="{{{_fid_90}}}">{{{_fid_88}}}</a>
+              </td>
+              <td>
+                {{#ifCon _fid_79 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                   {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_80 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_93 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_81 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_82 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_83 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_84 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_85 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{{_fid_86}}}
+              </td>
+            </tr>
+          {{/ifCon}}
+        {{/each}}
+        <tr>
+          <th class="title">
+            Battery Storage
+          </th>
+        </tr>
+        {{#each warranty}}
+          {{#ifCon _fid_87 "==" "Battery Storage"}}
+             <tr>
+              <td>
+                <a class="text-blue-600" href="{{{_fid_90}}}">{{{_fid_88}}}</a>
+              </td>
+              <td>
+                {{#ifCon _fid_79 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                   {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_80 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_93 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_81 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_82 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_83 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_84 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_85 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{{_fid_86}}}
+              </td>
+            </tr>
+          {{/ifCon}}
+        {{/each}}
+        <tr>
+          <th class="title">
+            Generators
+          </th>
+        </tr>
+        {{#each warranty}}
+          {{#ifCon _fid_87 "==" "Generators"}}
+            <tr>
+              <td>
+                <a class="text-blue-600" href="{{{_fid_90}}}">{{{_fid_88}}}</a>
+              </td>
+              <td>
+                {{#ifCon _fid_79 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                   {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_80 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_93 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_81 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_82 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_83 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_84 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{#ifCon _fid_85 "==" 1}}
+                  {{> offering/layout/svg/checkbox}}
+                {{else}}
+                  {{> offering/layout/svg/box}}
+                {{/ifCon}}
+              </td>
+              <td>
+                {{{_fid_86}}}
+              </td>
+            </tr>
+          {{/ifCon}}
+        {{/each}}
+        {{#each warranty}}
+          {{#ifCon _fid_88 "==" "SolarInsure"}}
+          <tr id="solar-insure-btn">
+            <th class="title">
+              <a class="bg-blue-700 text-white px-4 py-2 rounded shadow" href="{{{_fid_90}}}">{{{_fid_88}}}</a>
+            </th>
+          </tr>
+          {{/ifCon}}
+        {{/each}}
+      </table>
+    </div>
+    {{!-- Learn More --}}
+    <p class="text-blue-600 text-sm mt-3">*Learn more about extended warranty coverage with Solar Insure, exclusively offered in this region by AES. As low as $0.05 per watt!</p>
+  </div>
+</div>
